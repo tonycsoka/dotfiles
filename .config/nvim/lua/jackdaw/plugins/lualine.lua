@@ -50,14 +50,7 @@ return {
 				if not nvim_navic.is_available() then
 					return ""
 				end
-				local details = {}
-				for _, item in ipairs(nvim_navic.get_data()) do
-					-- For some reason sumneko adds a random ` ->` to the end of the name *sometimes*
-					-- This accounts for that I guess...
-					table.insert(details, item.icon .. item.name:gsub("%s*->%s*", ""))
-					-- Looks like we have some more weirdness coming from sumneko...
-				end
-				return table.concat(details, " > ")
+				return nvim_navic.get_location()
 			end
 			local get_buf_filetype = function()
 				return vim.api.nvim_buf_get_option(0, "filetype")
