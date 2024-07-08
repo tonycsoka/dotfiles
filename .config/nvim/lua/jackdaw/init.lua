@@ -3,7 +3,6 @@ vim.cmd("let g:netrw_liststyle = 3")
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 vim.opt.cmdheight = 0
-vim.g.python3_host_prog = "/Users/tony/.pyenv/versions/lunarvim/bin/python"
 vim.opt.number = true
 vim.opt.relativenumber = true
 
