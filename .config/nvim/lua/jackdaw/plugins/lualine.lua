@@ -53,7 +53,7 @@ return {
 				return nvim_navic.get_location()
 			end
 			local get_buf_filetype = function()
-				return vim.api.nvim_buf_get_option(0, "filetype")
+				return vim.api.nvim_get_option_value("filetype", {buf = 0})
 			end
 			local format_name = function(output)
 				if excluded_filetypes_table[get_buf_filetype()] then
@@ -63,8 +63,9 @@ return {
 			end
 			local branch_max_width = 40
 			local branch_min_width = 10
-			lualine.setup({
+			lualine.setup({ ---@diagnostic disable-line: redundant-parameter
 				options = {
+          theme = "palenight",
 					disabled_filetypes = {
 						winbar = excluded_filetypes_array,
 					},
@@ -114,9 +115,9 @@ return {
 					lualine_y = {
 						{
 							function()
-								local lsps = vim.lsp.get_active_clients({ bufnr = vim.fn.bufnr() })
+								local lsps = vim.lsp.get_clients({ bufnr = vim.fn.bufnr() })
 								local icon = require("nvim-web-devicons").get_icon_by_filetype(
-									vim.api.nvim_buf_get_option(0, "filetype")
+									vim.api.nvim_get_option_value("filetype", {buf = 0})
 								)
 								if lsps and #lsps > 0 then
 									local names = {}
@@ -133,7 +134,7 @@ return {
 							end,
 							color = function()
 								local _, color = require("nvim-web-devicons").get_icon_cterm_color_by_filetype(
-									vim.api.nvim_buf_get_option(0, "filetype")
+									vim.api.nvim_get_option_value("filetype", {buf = 0})
 								)
 								return { fg = color }
 							end,
