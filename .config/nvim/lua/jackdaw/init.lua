@@ -26,6 +26,11 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
 require("jackdaw.keymap")
 require("jackdaw.lazy")
 
@@ -93,7 +98,28 @@ autocmd("LspAttach", {
 	end,
 })
 
-require("toggleterm").setup({})
+require("toggleterm").setup({
+  size = 20,
+  open_mapping = [[<c-\>]],
+  hide_numbers = true,
+  shade_filetypes = {},
+  shade_terminals = true,
+  shading_factor = -30,
+  shading_ratio = -3,
+  start_in_insert = true,
+  insert_mappings = true,
+  persist_size = true,
+  direction = "float",
+  close_on_exit = true,
+  shell = vim.o.shell,
+  float_opts = {
+    border = "curved",
+    winblend = 0,
+  },
+})
+
+require("mini.surround").setup()
+
 local harpoon = require("harpoon")
 
 -- REQUIRED
@@ -111,6 +137,8 @@ vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
