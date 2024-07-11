@@ -148,6 +148,8 @@ vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
 
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
+vim.keymap.set("n", "<leader>sl", require("auto-session.session-lens").search_session, { noremap = true,})
+
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
