@@ -44,7 +44,7 @@ return {
 
 		-- nvim-cmp setup
 		local cmp = require("cmp")
-		cmp.setup({
+		cmp.setup({ ---@diagnostic disable-line: redundant-parameter
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
