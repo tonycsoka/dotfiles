@@ -11,6 +11,7 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
+    "onsails/lspkind.nvim",
 	},
 	config = function()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -41,6 +42,8 @@ return {
 
 		-- luasnip setup
 		local luasnip = require("luasnip")
+
+    local lspkind = require("lspkind")
 
 		-- nvim-cmp setup
 		local cmp = require("cmp")
@@ -77,10 +80,24 @@ return {
 					end
 				end, { "i", "s" }),
 			}),
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-			}),
-		})
+      sources = cmp.config.sources({---@diagnostic disable-line: undefined-field
+        { name = 'nvim_lsp' },
+        { name = 'vsnip' },
+      }),
+      formatting = {
+        format = lspkind.cmp_format({
+          mode = 'symbol_text',
+          menu = ({
+            buffer = "[Buffer]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[LuaSnip]",
+            nvim_lua = "[Lua]",
+            latex_symbols = "[Latex]",
+          }),
+          maxwidth = 50,
+          ellipsis_char = '...',
+        })
+      },
+    })
 	end,
 }
