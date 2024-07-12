@@ -34,13 +34,12 @@ vim.opt.undofile = true
 require("jackdaw.keymap")
 require("jackdaw.lazy")
 
+vim.o.foldcolumn = '0'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldcolumn = "0"
-vim.opt.foldtext = ""
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 2
--- vim.opt.foldnestmax = 4
 
 vim.cmd.colorscheme("catppuccin")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
