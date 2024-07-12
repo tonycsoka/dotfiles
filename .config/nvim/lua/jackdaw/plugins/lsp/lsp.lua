@@ -8,10 +8,6 @@ return {
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/nvim-cmp",
-    { "L3MON4D3/LuaSnip",
-      dependencies = { "rafamadriz/friendly-snippets" },
-    },
-    "rafamadriz/friendly-snippets",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
     "onsails/lspkind.nvim",
@@ -85,7 +81,7 @@ return {
 			}),
       sources = cmp.config.sources({---@diagnostic disable-line: undefined-field
         { name = 'nvim_lsp' },
-        -- { name = "buffer" },
+        { name = "buffer" },
         { name = 'luasnip' },
       }),
       formatting = {
