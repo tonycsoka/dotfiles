@@ -1,10 +1,5 @@
 return {
   {
-    "L3MON4D3/LuaSnip",
-    dependencies = { "rafamadriz/friendly-snippets" },
-  },
-  { "rafamadriz/friendly-snippets" }, 
-  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
@@ -14,7 +9,10 @@ return {
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
       "hrsh7th/nvim-cmp",
-      "L3MON4D3/LuaSnip",
+      {
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
+      },
       "saadparwaiz1/cmp_luasnip",
       "j-hui/fidget.nvim",
       "onsails/lspkind.nvim",
@@ -87,24 +85,25 @@ return {
             end
           end, { "i", "s" }),
         }),
-        sources = cmp.config.sources({---@diagnostic disable-line: undefined-field
-          { name = 'nvim_lsp' },
-          { name = "buffer" },
-          { name = 'luasnip' },
-        }),
+        sources = {
+          { name = 'path' },
+          { name = 'nvim_lsp', keyword_length = 1 },
+          { name = 'buffer', keyword_length = 3 },
+          { name = 'luasnip', keyword_length = 2 },
+        },
         formatting = {
-          format = lspkind.cmp_format({
-            mode = 'symbol_text',
-            menu = ({
-              buffer = "[Buffer]",
-              nvim_lsp = "[LSP]",
-              luasnip = "[LuaSnip]",
-              nvim_lua = "[Lua]",
-              latex_symbols = "[Latex]",
-            }),
-            maxwidth = 50,
-            ellipsis_char = '...',
-          })
+          fields = {'menu', 'abbr', 'kind'},
+          format = function(entry, item)
+            local menu_icon = {
+              buffer = 'Ω',
+              nvim_lsp = 'λ',
+              luasnip = '⋗',
+              path = '󰙅',
+            }
+
+            item.menu = menu_icon[entry.source.name]
+            return item
+          end,
         },
       })
     end,
