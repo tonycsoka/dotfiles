@@ -34,10 +34,10 @@ vim.opt.undofile = true
 require("jackdaw.keymap")
 require("jackdaw.lazy")
 
-vim.o.foldcolumn = '0'
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
+vim.opt.foldcolumn = '0'
+vim.opt.foldlevel = 4
+vim.opt.foldlevelstart = 1
+vim.opt.foldenable = false
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
