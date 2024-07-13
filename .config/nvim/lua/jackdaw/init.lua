@@ -106,6 +106,14 @@ autocmd("LspAttach", {
 	end,
 })
 
+require("oil").setup({
+	default_file_explorer = false,
+})
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+require("carbon").setup({ keep_netrw = false })
+
+require("mini.pairs").setup()
+
 require("toggleterm").setup({
 	size = 20,
 	open_mapping = [[<c-\>]],
@@ -132,7 +140,7 @@ local python_path = table
 require("dap-python").setup(python_path)
 require("dapui").setup()
 
-require("neotest").setup({
+require("neotest").setup({ ---@diagnostic disable-line: missing-fields
 	adapters = {
 		require("neotest-python"),
 	},
@@ -148,23 +156,23 @@ harpoon:setup()
 
 vim.keymap.set("n", "<leader>a", function()
 	harpoon:list():add()
-end)
+end, { desc = "Harpoon add" })
 vim.keymap.set("n", "<C-e>", function()
 	harpoon.ui:toggle_quick_menu(harpoon:list())
-end)
+end, { desc = "Harpoon menu" })
 
 vim.keymap.set("n", "<C-h>", function()
 	harpoon:list():select(1)
-end)
+end, { desc = "Harpoon b1" })
 vim.keymap.set("n", "<C-t>", function()
 	harpoon:list():select(2)
-end)
+end, { desc = "Harpoon b2" })
 vim.keymap.set("n", "<C-n>", function()
 	harpoon:list():select(3)
-end)
+end, { desc = "Harpoon b3" })
 vim.keymap.set("n", "<C-s>", function()
 	harpoon:list():select(4)
-end)
+end, { desc = "Harpoon b4" })
 
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<C-S-P>", function()
