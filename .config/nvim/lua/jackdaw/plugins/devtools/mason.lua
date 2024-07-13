@@ -33,6 +33,7 @@ return {
 				"pyright", -- python lsp
 				"clangd", -- c family lsp
 				"lua_ls", -- lua lsp
+				"debugpy", -- python dap
 			},
 		})
 	end,
