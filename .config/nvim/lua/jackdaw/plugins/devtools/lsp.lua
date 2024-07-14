@@ -24,7 +24,7 @@ return {
 			local lspconfig = require("lspconfig")
 
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-			local servers = { "clangd", "rust_analyzer", "pyright", "tsserver" }
+			local servers = { "clangd", "rust_analyzer", "pyright", "tsserver", "lua_ls" }
 			for _, lsp in ipairs(servers) do
 				lspconfig[lsp].setup({
 					-- on_attach = my_custom_on_attach,
@@ -32,22 +32,9 @@ return {
 				})
 			end
 
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-				settings = {
-					Lua = {
-						runtime = { version = "Lua 5.1" },
-						diagnostics = {
-							globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-						},
-					},
-				},
-			})
-
 			-- luasnip setup
 			local luasnip = require("luasnip")
 			require("luasnip.loaders.from_vscode").lazy_load()
-			local lspkind = require("lspkind")
 
 			-- nvim-cmp setup
 			local cmp = require("cmp")
@@ -87,7 +74,7 @@ return {
 				sources = {
 					{ name = "path" },
 					{ name = "nvim_lsp", keyword_length = 1 },
-					{ name = "buffer", keyword_length = 3 },
+					{ name = "buffer", keyword_length = 1 },
 					{ name = "luasnip", keyword_length = 2 },
 				},
 				formatting = { ---@diagnostic disable-line: missing-fields

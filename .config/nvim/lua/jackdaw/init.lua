@@ -116,7 +116,6 @@ require("oil").setup({
 	default_file_explorer = false,
 })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-require("carbon").setup({ keep_netrw = false })
 
 require("mini.pairs").setup()
 
@@ -157,6 +156,8 @@ require("notify").setup({ ---@diagnostic disable-line: missing-fields
 })
 
 require("mini.surround").setup()
+
+require("gitsigns").setup()
 
 local harpoon = require("harpoon")
 
