@@ -152,6 +152,10 @@ require("neotest").setup({ ---@diagnostic disable-line: missing-fields
 	},
 })
 
+require("notify").setup({ ---@diagnostic disable-line: missing-fields
+	background_colour = "#000000",
+})
+
 require("mini.surround").setup()
 
 local harpoon = require("harpoon")
