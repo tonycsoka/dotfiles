@@ -34,6 +34,7 @@ return {
 				"clangd", -- c family lsp
 				"lua_ls", -- lua lsp
 				"debugpy", -- python dap
+				"codelldb", -- c family debugger
 			},
 		})
 	end,
