@@ -34,7 +34,7 @@ vim.opt.undofile = true
 require("jackdaw.keymap")
 require("jackdaw.lazy")
 
-vim.opt.foldcolumn = "0"
+vim.opt.foldcolumn = "auto"
 vim.opt.foldlevel = 4
 vim.opt.foldlevelstart = 1
 vim.opt.foldenable = false
@@ -113,7 +113,10 @@ for type, icon in pairs(signs) do
 end
 
 require("oil").setup({
-	default_file_explorer = false,
+	default_file_explorer = true,
+	keymaps = {
+		["q"] = "actions.close",
+	},
 })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
