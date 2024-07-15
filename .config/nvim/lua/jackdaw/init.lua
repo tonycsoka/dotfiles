@@ -31,8 +31,8 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-require("jackdaw.keymap")
 require("jackdaw.lazy")
+require("jackdaw.keymap")
 
 vim.opt.foldcolumn = "auto"
 vim.opt.foldlevel = 4
@@ -118,7 +118,6 @@ require("oil").setup({
 		["q"] = "actions.close",
 	},
 })
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 require("mini.pairs").setup()
 
@@ -195,10 +194,6 @@ end)
 vim.keymap.set("n", "<C-S-N>", function()
 	harpoon:list():next()
 end)
-
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-
-vim.keymap.set("n", "<leader>sl", require("auto-session.session-lens").search_session, { noremap = true })
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
