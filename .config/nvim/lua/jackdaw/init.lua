@@ -31,8 +31,8 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-require("jackdaw.lazy")
-require("jackdaw.keymap")
+-- require("jackdaw.lazy")
+-- require("jackdaw.keymap")
 
 vim.opt.foldcolumn = "auto"
 vim.opt.foldlevel = 4
@@ -41,10 +41,16 @@ vim.opt.foldenable = false
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
+require("jackdaw.lazy")
+require("jackdaw.keymap")
+
 vim.cmd.colorscheme("catppuccin")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", ctermbg = "none" })
+
+require("jackdaw.lazy")
+require("jackdaw.keymap")
 
 local augroup = vim.api.nvim_create_augroup
 local jackdaw = augroup("Jackdaw", {})
