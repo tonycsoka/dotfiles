@@ -123,7 +123,7 @@ wezterm.on("gui-startup", function(cmd)
 		args = args,
 	})
 
-	window:gui_window():toggle_fullscreen()
+	-- window:gui_window():toggle_fullscreen()
 
 	-- local editor_pane = build_pane:split({
 	-- 	direction = "Top",
