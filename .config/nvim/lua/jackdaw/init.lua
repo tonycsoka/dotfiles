@@ -82,7 +82,7 @@ autocmd("LspAttach", {
 		vim.keymap.set("n", "K", function()
 			vim.lsp.buf.hover()
 		end, opts)
-		vim.keymap.set("n", "dw", function()
+		vim.keymap.set("n", "gw", function()
 			vim.lsp.buf.workspace_symbol()
 		end, opts)
 		vim.keymap.set("n", "gD", function()

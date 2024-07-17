@@ -36,11 +36,11 @@ config.keys = {
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.ShowTabNavigator,
 	},
-	-- {
-	-- 	key = "l",
-	-- 	mods = "CTRL|SHIFT",
-	-- 	action = wezterm.action.ShowLauncher,
-	-- },
+	{
+		key = "q",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.QuitApplication,
+	},
 	{
 		key = "l",
 		mods = "CTRL|SHIFT",
