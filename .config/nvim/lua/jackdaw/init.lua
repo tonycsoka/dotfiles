@@ -97,7 +97,7 @@ autocmd("LspAttach", {
 		vim.keymap.set("n", "gR", function()
 			vim.lsp.buf.rename()
 		end, opts)
-		vim.keymap.set("i", "gs", function()
+		vim.keymap.set("n", "gs", function()
 			vim.lsp.buf.signature_help()
 		end, opts)
 		vim.keymap.set("n", "[d", function()
