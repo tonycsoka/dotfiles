@@ -22,20 +22,24 @@ config.text_background_opacity = 1.0
 config.keys = {
 	{
 		key = "r",
-		mods = "CMD|SHIFT",
+		mods = "CTRL|SHIFT",
 		action = wezterm.action.ReloadConfiguration,
 	},
 	{
 		key = "Escape",
-		mods = "CTRL",
+		mods = "CTRL|SHIFT",
 		action = wezterm.action.ToggleFullScreen,
 	},
 	{
 		key = "t",
-		mods = "CMD|SHIFT",
+		mods = "CTRL|SHIFT",
 		action = wezterm.action.ShowTabNavigator,
 	},
-	{ key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
+	{
+		key = "l",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ShowLauncher,
+	},
 }
 
 config.window_padding = {

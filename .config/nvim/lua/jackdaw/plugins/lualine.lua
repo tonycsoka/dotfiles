@@ -53,7 +53,7 @@ return {
 				return nvim_navic.get_location()
 			end
 			local get_buf_filetype = function()
-				return vim.api.nvim_get_option_value("filetype", {buf = 0})
+				return vim.api.nvim_get_option_value("filetype", { buf = 0 })
 			end
 			local format_name = function(output)
 				if excluded_filetypes_table[get_buf_filetype()] then
@@ -65,7 +65,7 @@ return {
 			local branch_min_width = 10
 			lualine.setup({ ---@diagnostic disable-line: redundant-parameter
 				options = {
-          theme = "palenight",
+					theme = "palenight",
 					disabled_filetypes = {
 						winbar = excluded_filetypes_array,
 					},
@@ -73,7 +73,19 @@ return {
 				},
 				sections = {
 					lualine_a = {
-						"mode",
+						-- "mode",
+						{
+							require("noice").api.status.command.get,
+							cond = require("noice").api.status.command.has,
+						},
+						{
+							require("noice").api.status.mode.get,
+							cond = require("noice").api.status.mode.has,
+						},
+						{
+							require("noice").api.status.search.get,
+							cond = require("noice").api.status.search.has,
+						},
 						{
 							"branch",
 							fmt = function(output)
@@ -117,7 +129,7 @@ return {
 							function()
 								local lsps = vim.lsp.get_clients({ bufnr = vim.fn.bufnr() })
 								local icon = require("nvim-web-devicons").get_icon_by_filetype(
-									vim.api.nvim_get_option_value("filetype", {buf = 0})
+									vim.api.nvim_get_option_value("filetype", { buf = 0 })
 								)
 								if lsps and #lsps > 0 then
 									local names = {}
@@ -134,7 +146,7 @@ return {
 							end,
 							color = function()
 								local _, color = require("nvim-web-devicons").get_icon_cterm_color_by_filetype(
-									vim.api.nvim_get_option_value("filetype", {buf = 0})
+									vim.api.nvim_get_option_value("filetype", { buf = 0 })
 								)
 								return { fg = color }
 							end,
