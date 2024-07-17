@@ -17,7 +17,7 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = "kanagawabones"
 config.font = wezterm.font("FiraCode Nerd Font")
-config.font_size = 15
+config.font_size = 12
 config.native_macos_fullscreen_mode = true
 config.text_background_opacity = 1.0
 config.keys = {
@@ -36,10 +36,15 @@ config.keys = {
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.ShowTabNavigator,
 	},
+	-- {
+	-- 	key = "l",
+	-- 	mods = "CTRL|SHIFT",
+	-- 	action = wezterm.action.ShowLauncher,
+	-- },
 	{
 		key = "l",
 		mods = "CTRL|SHIFT",
-		action = wezterm.action.ShowLauncher,
+		action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|TABS|WORKSPACES|COMMANDS" }),
 	},
 	{
 		key = "w",
