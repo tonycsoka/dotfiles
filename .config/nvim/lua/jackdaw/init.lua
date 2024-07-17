@@ -31,10 +31,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
--- require("jackdaw.lazy")
--- require("jackdaw.keymap")
-
-vim.opt.foldcolumn = "auto"
+vim.opt.foldcolumn = "0"
 vim.opt.foldlevel = 4
 vim.opt.foldlevelstart = 1
 vim.opt.foldenable = false
