@@ -198,6 +198,35 @@ vim.keymap.set("n", "<C-S-N>", function()
 	harpoon:list():next()
 end)
 
+-- debugging keymaps
+vim.keymap.set("n", "<leader>dt", function()
+	require("neotest").run.run()
+end, { desc = "Run nearest test" })
+vim.keymap.set("n", "<leader>dT", function()
+	require("neotest").run.run({ strategy = "dap" }) ---@diagnostic disable-line: missing-fields
+end, { desc = "Debug nearest test" })
+vim.keymap.set("n", "<leader>df", function()
+	require("neotest").run.run()
+end, { desc = "Run all tests" })
+vim.keymap.set("n", "<leader>dF", function()
+	require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" }) ---@diagnostic disable-line: missing-fields
+end, { desc = "Debug all tests" })
+vim.keymap.set("n", "<leader>db", function()
+	require("dap").toggle_breakpoint()
+end, { desc = "DAP Toggle breakpoint" })
+vim.keymap.set("n", "<leader>dc", function()
+	require("dap").continue()
+end, { desc = "DAP Continue" })
+vim.keymap.set("n", "<leader>di", function()
+	require("dap").step_into()
+end, { desc = "DAP Step into" })
+vim.keymap.set("n", "<leader>do", function()
+	require("dap").step_over()
+end, { desc = "DAP Step over" })
+vim.keymap.set("n", "<leader>du", function()
+	require("dapui").toggle()
+end, { desc = "DAP Toggle UI" })
+
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
