@@ -5,13 +5,13 @@ return {
 		cmd = "Trouble",
 		keys = {
 			{
-				"<leader>td",
+				"<leader>da",
 				"<cmd>Trouble diagnostics toggle focus=true<cr>",
 				desc = "Diagnostics (Trouble)",
 			},
 			{
-				"<leader>tD",
-				"<cmd>Trouble diagnostics toggle focus=true .buf=0<cr>",
+				"<leader>db",
+				"<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>",
 				desc = "Buffer Diagnostics (Trouble)",
 			},
 			{
@@ -20,17 +20,17 @@ return {
 				desc = "Symbols (Trouble)",
 			},
 			{
-				"<leader>tl",
+				"<leader>lt",
 				"<cmd>Trouble lsp toggle focus=true win.position=right<cr>",
 				desc = "LSP Definitions / references / ... (Trouble)",
 			},
 			{
-				"<leader>tL",
+				"<leader>ll",
 				"<cmd>Trouble loclist toggle<cr>",
 				desc = "Location List (Trouble)",
 			},
 			{
-				"<leader>tQ",
+				"<leader>ql",
 				"<cmd>Trouble qflist toggle<cr>",
 				desc = "Quickfix List (Trouble)",
 			},
