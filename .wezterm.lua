@@ -1,6 +1,7 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 local mux = wezterm.mux
+local act = wezterm.action
 
 -- This table will hold the configuration.
 local config = {}
@@ -39,6 +40,38 @@ config.keys = {
 		key = "l",
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.ShowLauncher,
+	},
+	{
+		key = "w",
+		mods = "CTRL|SHIFT",
+		action = act.PromptInputLine({
+			description = wezterm.format({
+				{ Attribute = { Intensity = "Bold" } },
+				{ Foreground = { AnsiColor = "Fuchsia" } },
+				{ Text = "Enter name for new workspace" },
+			}),
+			action = wezterm.action_callback(function(window, pane, line)
+				-- line will be `nil` if they hit escape without entering anything
+				-- An empty string if they just hit enter
+				-- Or the actual line of text they wrote
+				if line then
+					window:perform_action(
+						act.SwitchToWorkspace({
+							name = line,
+						}),
+						pane
+					)
+				end
+			end),
+		}),
+	},
+	{
+		key = "s",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SplitPane({
+			direction = "Up",
+			size = { Percent = 70 },
+		}),
 	},
 }
 
@@ -110,54 +143,54 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 	window:set_config_overrides(overrides)
 end)
 
-wezterm.on("gui-startup", function(cmd)
-	-- allow `wezterm start -- something` to affect what we spawn
-	-- in our initial window
-	local args = {}
-	if cmd then
-		args = cmd.args
-	end
+-- wezterm.on("gui-startup", function(cmd)
+-- 	-- allow `wezterm start -- something` to affect what we spawn
+-- 	-- in our initial window
+-- 	local args = {}
+-- 	if cmd then
+-- 		args = cmd.args
+-- 	end
 
-	-- Set a workspace for coding on a current project
-	-- Top pane is for the editor, bottom pane is for the build tool
-	local project_dir = wezterm.home_dir .. "/work"
-	local tab, build_pane, window = mux.spawn_window({
-		workspace = "coding",
-		cwd = project_dir,
-		args = args,
-	})
+-- 	-- Set a workspace for coding on a current project
+-- 	-- Top pane is for the editor, bottom pane is for the build tool
+-- 	local project_dir = wezterm.home_dir .. "/work"
+-- 	local tab, build_pane, window = mux.spawn_window({
+-- 		workspace = "coding",
+-- 		cwd = project_dir,
+-- 		args = args,
+-- 	})
 
-	-- window:gui_window():toggle_fullscreen()
+-- 	-- window:gui_window():toggle_fullscreen()
 
-	-- local editor_pane = build_pane:split({
-	-- 	direction = "Top",
-	-- 	size = 0.7,
-	-- 	cwd = project_dir,
-	-- })
-	-- -- may as well kick off a build in that pane
-	-- -- build_pane:send_text("ls")
+-- 	-- local editor_pane = build_pane:split({
+-- 	-- 	direction = "Top",
+-- 	-- 	size = 0.7,
+-- 	-- 	cwd = project_dir,
+-- 	-- })
+-- 	-- -- may as well kick off a build in that pane
+-- 	-- -- build_pane:send_text("ls")
 
-	-- -- A workspace for interacting with a local machine that
-	-- -- runs some docker containners for home automation
-	-- local tab, pane, window = mux.spawn_window({
-	-- 	workspace = "3 Terms",
-	-- 	cwd = wezterm.home_dir,
-	-- })
+-- 	-- -- A workspace for interacting with a local machine that
+-- 	-- -- runs some docker containners for home automation
+-- 	-- local tab, pane, window = mux.spawn_window({
+-- 	-- 	workspace = "3 Terms",
+-- 	-- 	cwd = wezterm.home_dir,
+-- 	-- })
 
-	-- pane = pane:split({
-	-- 	direction = "Top",
-	-- 	size = 0.66,
-	-- 	cwd = wezterm.home_dir,
-	-- })
+-- 	-- pane = pane:split({
+-- 	-- 	direction = "Top",
+-- 	-- 	size = 0.66,
+-- 	-- 	cwd = wezterm.home_dir,
+-- 	-- })
 
-	-- pane = pane:split({
-	-- 	direction = "Top",
-	-- 	size = 0.5,
-	-- })
+-- 	-- pane = pane:split({
+-- 	-- 	direction = "Top",
+-- 	-- 	size = 0.5,
+-- 	-- })
 
-	-- We want to startup in the coding workspace
-	mux.set_active_workspace("coding")
-end)
+-- 	-- We want to startup in the coding workspace
+-- 	mux.set_active_workspace("coding")
+-- end)
 
 -- and finally, return the configuration to wezterm
 return config
