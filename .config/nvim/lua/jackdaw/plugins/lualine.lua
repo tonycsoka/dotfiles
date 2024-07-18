@@ -33,6 +33,7 @@ return {
 			"kyazdani42/nvim-web-devicons",
 			"SmiteshP/nvim-navic",
 			"onsails/lspkind-nvim",
+			"mfussenegger/nvim-lint",
 		},
 		lazy = false,
 		priority = 999,
@@ -149,6 +150,15 @@ return {
 									vim.api.nvim_get_option_value("filetype", { buf = 0 })
 								)
 								return { fg = color }
+							end,
+						},
+						{
+							function()
+								local linters = require("lint").get_running()
+								if #linters == 0 then
+									return "󰦕"
+								end
+								return "󱉶 " .. table.concat(linters, ", ")
 							end,
 						},
 						"encoding",
