@@ -32,12 +32,6 @@ return {
 					font = "+2", -- (10% increase per step)
 				},
 			},
-			on_open = function()
-				vim.o.cmdheight = 1
-			end,
-			on_close = function()
-				vim.o.cmdheight = 0
-			end,
 		},
 	},
 }
