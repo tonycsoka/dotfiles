@@ -45,6 +45,7 @@ vim.cmd.colorscheme("catppuccin")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", ctermbg = "none" })
+vim.api.nvim_set_hl(0, "ZenBg", { ctermbg = 0 })
 
 require("jackdaw.lazy")
 require("jackdaw.keymap")

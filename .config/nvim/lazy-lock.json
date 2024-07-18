@@ -52,5 +52,6 @@
   "trouble.nvim": { "branch": "main", "commit": "bf99ea71a39e322336b7f8be965f86dbf5c65540" },
   "undotree": { "branch": "master", "commit": "56c684a805fe948936cda0d1b19505b84ad7e065" },
   "venv-selector.nvim": { "branch": "regexp", "commit": "47159757b334343fe60f16d52478f827ccefa09d" },
-  "vim-commentary": { "branch": "master", "commit": "c4b8f52cbb7142ec239494e5a2c4a512f92c4d07" }
+  "vim-commentary": { "branch": "master", "commit": "c4b8f52cbb7142ec239494e5a2c4a512f92c4d07" },
+  "zen-mode.nvim": { "branch": "main", "commit": "a31cf7113db34646ca320f8c2df22cf1fbfc6f2a" }
 }
