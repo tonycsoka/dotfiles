@@ -22,10 +22,12 @@ return {
 					list = false, -- disable whitespace characters
 				},
 			},
-			wezterm = {
-				enabled = true,
-				-- can be either an absolute font size or the number of incremental steps
-				font = "+4", -- (10% increase per step)
+			plugins = {
+				wezterm = {
+					enabled = true,
+					-- can be either an absolute font size or the number of incremental steps
+					font = "+2", -- (10% increase per step)
+				},
 			},
 			on_open = function()
 				vim.o.cmdheight = 1
