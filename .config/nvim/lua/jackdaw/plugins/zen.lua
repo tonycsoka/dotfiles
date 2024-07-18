@@ -23,6 +23,9 @@ return {
 				},
 			},
 			plugins = {
+				options = {
+					laststatus = 0,
+				},
 				wezterm = {
 					enabled = true,
 					-- can be either an absolute font size or the number of incremental steps
