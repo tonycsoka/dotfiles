@@ -26,6 +26,8 @@ NVIM_APPNAME=tonycsoka/dotfiles/.config/nvim nvim
 
 ## Plugins
 
+Plugins are set up using a simple callback mechanism, so that setup and keymaps are close to the plugin spec, as per my personal preference. See the [harpoon.lua](.config/nvim/lua/jackdaw/plugins.harpoon.lua) spec file for example.
+
 ### bars-and-lines
 
 + [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
