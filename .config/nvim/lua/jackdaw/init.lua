@@ -50,9 +50,9 @@ vim.api.nvim_set_hl(0, "ZenBg", { ctermbg = 0 })
 
 local augroup = vim.api.nvim_create_augroup
 local jackdaw = augroup("Jackdaw", {})
+local yank_group = augroup("HighlightYank", {})
 
 local autocmd = vim.api.nvim_create_autocmd
-local yank_group = augroup("HighlightYank", {})
 
 autocmd("TextYankPost", {
 	group = yank_group,
