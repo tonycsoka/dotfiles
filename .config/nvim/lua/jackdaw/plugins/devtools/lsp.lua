@@ -12,37 +12,49 @@ require("jackdaw.postfix").add(function()
 	autocmd("LspAttach", {
 		group = jackdaw,
 		callback = function(e)
-			local opts = { buffer = e.buf }
-			vim.keymap.set("n", "gd", function()
+			local function set_keys(keys, func, desc)
+				vim.keymap.set("n", keys, func, { buffer = e.buf, desc = desc })
+			end
+
+			set_keys("gd", function()
 				vim.lsp.buf.definition()
-			end, opts)
-			vim.keymap.set("n", "K", function()
+			end, "Goto Definition")
+
+			set_keys("K", function()
 				vim.lsp.buf.hover()
-			end, opts)
-			vim.keymap.set("n", "gw", function()
+			end, "Hover")
+
+			set_keys("gw", function()
 				vim.lsp.buf.workspace_symbol()
-			end, opts)
-			vim.keymap.set("n", "gD", function()
+			end, "Workspace Symbol")
+
+			set_keys("gD", function()
 				vim.diagnostic.open_float()
-			end, opts)
-			vim.keymap.set("n", "gc", function()
+			end, "Open Diagnostics")
+
+			set_keys("gc", function()
 				vim.lsp.buf.code_action()
-			end, opts)
-			vim.keymap.set("n", "gr", function()
+			end, "Code Actions")
+
+			set_keys("gr", function()
 				vim.lsp.buf.references()
-			end, opts)
-			vim.keymap.set("n", "gR", function()
+			end, "References")
+
+			set_keys("gR", function()
 				vim.lsp.buf.rename()
-			end, opts)
-			vim.keymap.set("n", "gs", function()
+			end, "Rename")
+
+			set_keys("gs", function()
 				vim.lsp.buf.signature_help()
-			end, opts)
-			vim.keymap.set("n", "[d", function()
+			end, "Signature Help")
+
+			set_keys("[d", function()
 				vim.diagnostic.goto_next()
-			end, opts)
-			vim.keymap.set("n", "]d", function()
+			end, "Next Diagnostic")
+
+			set_keys("]d", function()
 				vim.diagnostic.goto_prev()
-			end, opts)
+			end, "Pervious Diagnostic")
 		end,
 	})
 
