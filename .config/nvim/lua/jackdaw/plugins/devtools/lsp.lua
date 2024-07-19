@@ -1,3 +1,58 @@
+require("jackdaw.postfix").add(function()
+	local augroup = vim.api.nvim_create_augroup
+	local jackdaw = augroup("Jackdaw", {})
+
+	local autocmd = vim.api.nvim_create_autocmd
+	autocmd({ "BufWritePre" }, {
+		group = jackdaw,
+		pattern = "*",
+		command = [[%s/\s\+$//e]],
+	})
+
+	autocmd("LspAttach", {
+		group = jackdaw,
+		callback = function(e)
+			local opts = { buffer = e.buf }
+			vim.keymap.set("n", "gd", function()
+				vim.lsp.buf.definition()
+			end, opts)
+			vim.keymap.set("n", "K", function()
+				vim.lsp.buf.hover()
+			end, opts)
+			vim.keymap.set("n", "gw", function()
+				vim.lsp.buf.workspace_symbol()
+			end, opts)
+			vim.keymap.set("n", "gD", function()
+				vim.diagnostic.open_float()
+			end, opts)
+			vim.keymap.set("n", "gc", function()
+				vim.lsp.buf.code_action()
+			end, opts)
+			vim.keymap.set("n", "gr", function()
+				vim.lsp.buf.references()
+			end, opts)
+			vim.keymap.set("n", "gR", function()
+				vim.lsp.buf.rename()
+			end, opts)
+			vim.keymap.set("n", "gs", function()
+				vim.lsp.buf.signature_help()
+			end, opts)
+			vim.keymap.set("n", "[d", function()
+				vim.diagnostic.goto_next()
+			end, opts)
+			vim.keymap.set("n", "]d", function()
+				vim.diagnostic.goto_prev()
+			end, opts)
+		end,
+	})
+
+	local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+	for type, icon in pairs(signs) do
+		local hl = "DiagnosticSign" .. type
+		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	end
+end)
+
 return {
 	{
 		"neovim/nvim-lspconfig",

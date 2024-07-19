@@ -1,3 +1,12 @@
+require("jackdaw.postfix").add(function()
+	require("oil").setup({
+		default_file_explorer = true,
+		keymaps = {
+			["q"] = "actions.close",
+		},
+	})
+end)
+
 return {
 	{
 		"stevearc/oil.nvim",

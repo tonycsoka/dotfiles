@@ -1,3 +1,11 @@
+require("jackdaw.postfix").add(function()
+	require("notify").setup({ ---@diagnostic disable-line: missing-fields
+		background_colour = "#000000",
+	})
+
+	require("gitsigns").setup()
+end)
+
 return {
 	{
 		"folke/noice.nvim",
