@@ -30,7 +30,7 @@ return {
 	{
 		"nvim-lualine/lualine.nvim", -- Neovim status line
 		dependencies = {
-			"kyazdani42/nvim-web-devicons",
+			"nvim-tree/nvim-web-devicons",
 			"SmiteshP/nvim-navic",
 			"onsails/lspkind-nvim",
 			"mfussenegger/nvim-lint",
