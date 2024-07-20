@@ -235,16 +235,6 @@ return {
 					lualine_z = {},
 				},
 				inactive_winbar = {},
-				-- 	lualine_a = {
-				-- 		{ "filetype", icon_only = true, icon = { align = "left" } },
-				-- 		{ "filename", file_status = false, path = 0 },
-				-- 	},
-				-- 	lualine_b = {},
-				-- 	lualine_c = {},
-				-- 	lualine_x = {},
-				-- 	lualine_y = {},
-				-- 	lualine_z = {},
-				-- },
 			})
 		end,
 	},
