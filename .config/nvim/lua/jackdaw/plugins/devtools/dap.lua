@@ -19,7 +19,14 @@ require("jackdaw.postfix").add(function()
 		.concat({ vim.fn.stdpath("data"), "mason", "packages", "debugpy", "venv", "bin", "python" }, "/")
 		:gsub("//+", "/")
 	require("dap-python").setup(python_path)
-	require("dapui").setup()
+	require("dapui").setup({
+		controls = {
+			-- Requires Neovim nightly (or 0.8 when released)
+			enabled = true,
+			-- Display controls in this element
+			element = "repl",
+		},
+	})
 end)
 
 return {
