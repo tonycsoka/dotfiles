@@ -19,14 +19,39 @@ require("jackdaw.postfix").add(function()
 		.concat({ vim.fn.stdpath("data"), "mason", "packages", "debugpy", "venv", "bin", "python" }, "/")
 		:gsub("//+", "/")
 	require("dap-python").setup(python_path)
-	require("dapui").setup({
-		controls = {
+	require("dapui").setup({ ---@diagnostic disable-line: missing-fields
+		controls = { ---@diagnostic disable-line: missing-fields
 			-- Requires Neovim nightly (or 0.8 when released)
 			enabled = true,
 			-- Display controls in this element
 			element = "repl",
 		},
 	})
+
+	vim.api.nvim_set_hl(0, "DapBreakpoint", { ctermbg = 0, fg = "#993939", bg = "#31353f" })
+	vim.api.nvim_set_hl(0, "DapLogPoint", { ctermbg = 0, fg = "#999939", bg = "#31353f" })
+	vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = "#019901", bg = "#31353f" })
+
+	vim.fn.sign_define(
+		"DapBreakpoint",
+		{ text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+	)
+	vim.fn.sign_define(
+		"DapBreakpointCondition",
+		{ text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+	)
+	vim.fn.sign_define(
+		"DapBreakpointRejected",
+		{ text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+	)
+	vim.fn.sign_define(
+		"DapLogPoint",
+		{ text = "󰛿", texthl = "DapLogPoint", linehl = "DapLogPoint", numhl = "DapLogPoint" }
+	)
+	vim.fn.sign_define(
+		"DapStopped",
+		{ text = "󰁕", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
+	)
 end)
 
 return {
