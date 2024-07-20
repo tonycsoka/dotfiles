@@ -28,10 +28,6 @@ require("jackdaw.postfix").add(function()
 		},
 	})
 
-	vim.api.nvim_set_hl(0, "DapBreakpoint", { ctermbg = 0, fg = "#993939", bg = "#31353f" })
-	vim.api.nvim_set_hl(0, "DapLogPoint", { ctermbg = 0, fg = "#999939", bg = "#31353f" })
-	vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = "#019901", bg = "#31353f" })
-
 	vim.fn.sign_define(
 		"DapBreakpoint",
 		{ text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
