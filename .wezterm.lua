@@ -137,8 +137,10 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 			end
 			overrides.enable_tab_bar = false
 		elseif number_value < 0 then
-			window:perform_action(wezterm.action.ResetFontSize, pane)
-			overrides.font_size = nil
+			while number_value <= 0 do
+				window:perform_action(wezterm.action.DecreaseFontSize, pane)
+				number_value = number_value + 1
+			end
 			overrides.enable_tab_bar = false
 		else
 			overrides.font_size = number_value
