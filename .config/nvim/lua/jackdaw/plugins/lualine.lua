@@ -15,7 +15,6 @@ local excluded_filetypes_array = {
 	"dap-repl",
 	"dashboard",
 	"dbui",
-	"float",
 	"floaterm",
 	"fugitive",
 	"git",

@@ -37,6 +37,9 @@ return {
 					font = "+2", -- (10% increase per step)
 				},
 			},
+			on_open = function(win)
+				vim.o.winbar = ""
+			end,
 		},
 	},
 }
