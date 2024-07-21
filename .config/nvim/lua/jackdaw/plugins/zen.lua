@@ -27,6 +27,7 @@ return {
 				},
 			},
 			plugins = {
+				enabled = true,
 				options = {
 					laststatus = 0,
 				},

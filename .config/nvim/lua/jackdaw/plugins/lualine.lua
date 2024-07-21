@@ -15,6 +15,7 @@ local excluded_filetypes_array = {
 	"dap-repl",
 	"dashboard",
 	"dbui",
+	"float",
 	"floaterm",
 	"fugitive",
 	"git",
@@ -248,11 +249,11 @@ return {
 						{ "filetype", icon_only = true, icon = { align = "left" } },
 						{ "filename", file_status = false, path = 0 },
 					},
-					lualine_b = {},
+					-- lualine_b = {},
 					lualine_c = { create_symbol_bar },
-					lualine_x = {},
-					lualine_y = {},
-					lualine_z = {},
+					-- lualine_x = {},
+					-- lualine_y = {},
+					-- lualine_z = {},
 				},
 				inactive_winbar = {
 					lualine_a = {
