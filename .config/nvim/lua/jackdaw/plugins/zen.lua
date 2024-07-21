@@ -1,3 +1,7 @@
+require("jackdaw.postfix").add_highlights(function()
+	vim.api.nvim_set_hl(0, "ZenBg", { ctermbg = 0 })
+end)
+
 return {
 	{
 		"folke/zen-mode.nvim",

@@ -38,7 +38,6 @@ local excluded_filetypes_array = {
 	"spectre_panel_write",
 	"startify",
 	"toggleterm",
-	"zenmode",
 }
 local excluded_filetypes_table = {}
 for _, value in ipairs(excluded_filetypes_array) do
@@ -69,7 +68,38 @@ return {
 				if not nvim_navic.is_available() then
 					return ""
 				end
-				return nvim_navic.get_location()
+				return nvim_navic.get_location({
+					separator = " -> ",
+					highlight = true,
+					icons = {
+						File = " ",
+						Module = " ",
+						Namespace = " ",
+						Package = " ",
+						Class = " ",
+						Method = " ",
+						Property = " ",
+						Field = " ",
+						Constructor = " ",
+						Enum = " ",
+						Interface = " ",
+						Function = " ",
+						Variable = " ",
+						Constant = " ",
+						String = " ",
+						Number = " ",
+						Boolean = " ",
+						Array = " ",
+						Object = " ",
+						Key = " ",
+						Null = " ",
+						EnumMember = " ",
+						Struct = " ",
+						Event = " ",
+						Operator = " ",
+						TypeParameter = " ",
+					},
+				})
 			end
 			local get_buf_filetype = function()
 				return vim.api.nvim_get_option_value("filetype", { buf = 0 })

@@ -4,10 +4,12 @@ require("jackdaw.keymap")
 require("jackdaw.postfix").doit()
 
 vim.cmd.colorscheme("catppuccin")
+
+require("jackdaw.postfix").doit_highlights()
+
 vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", ctermbg = "none" })
-vim.api.nvim_set_hl(0, "ZenBg", { ctermbg = 0 })
 
 local augroup = vim.api.nvim_create_augroup
 local yank_group = augroup("HighlightYank", {})
