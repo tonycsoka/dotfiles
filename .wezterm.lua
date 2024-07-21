@@ -17,7 +17,7 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = "kanagawabones"
 config.font = wezterm.font("FiraCode Nerd Font")
-config.font_size = 12
+config.font_size = 15
 config.native_macos_fullscreen_mode = true
 config.text_background_opacity = 1.0
 config.keys = {
@@ -139,7 +139,7 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 		elseif number_value < 0 then
 			window:perform_action(wezterm.action.ResetFontSize, pane)
 			overrides.font_size = nil
-			overrides.enable_tab_bar = true
+			overrides.enable_tab_bar = false
 		else
 			overrides.font_size = number_value
 			overrides.enable_tab_bar = false
