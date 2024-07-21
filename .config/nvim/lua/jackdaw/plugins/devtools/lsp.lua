@@ -82,7 +82,6 @@ return {
 			},
 			"saadparwaiz1/cmp_luasnip",
 			"j-hui/fidget.nvim",
-			"onsails/lspkind.nvim",
 		},
 		config = function()
 			local capabilities = vim.lsp.protocol.make_client_capabilities()

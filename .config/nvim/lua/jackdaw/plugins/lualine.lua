@@ -38,6 +38,7 @@ local excluded_filetypes_array = {
 	"spectre_panel_write",
 	"startify",
 	"toggleterm",
+	"zenmode",
 }
 local excluded_filetypes_table = {}
 for _, value in ipairs(excluded_filetypes_array) do
@@ -50,7 +51,6 @@ return {
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 			"SmiteshP/nvim-navic",
-			"onsails/lspkind-nvim",
 			"mfussenegger/nvim-lint",
 		},
 		lazy = false,
