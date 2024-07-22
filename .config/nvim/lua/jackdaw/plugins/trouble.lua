@@ -1,3 +1,8 @@
+require("jackdaw.postfix").add_highlights(function()
+	vim.api.nvim_set_hl(0, "TroubleNormal", { bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "TroubleNormalNC", { bg = "none", ctermbg = "none" })
+end)
+
 return {
 	{
 		"folke/trouble.nvim",
