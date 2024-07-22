@@ -4,10 +4,7 @@ local excluded_filetypes_array = {
 	"ImportManager",
 	"Jaq",
 	"NeogitCommitMessage",
-	"NvimTree",
 	"Outline",
-	"Outline",
-	"Trouble",
 	"Trouble",
 	"aerial",
 	"alpha",
@@ -26,7 +23,6 @@ local excluded_filetypes_array = {
 	"lsp-installer",
 	"lspinfo",
 	"man",
-	"neo-tree",
 	"neogitstatus",
 	"neotest-summary",
 	"netrw",
@@ -38,6 +34,7 @@ local excluded_filetypes_array = {
 	"spectre_panel_write",
 	"startify",
 	"toggleterm",
+	"trouble",
 }
 local excluded_filetypes_table = {}
 for _, value in ipairs(excluded_filetypes_array) do
