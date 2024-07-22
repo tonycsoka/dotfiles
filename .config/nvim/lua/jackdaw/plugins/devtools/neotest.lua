@@ -23,6 +23,9 @@ require("jackdaw.postfix").add(function()
 		adapters = {
 			require("neotest-python"),
 		},
+		summary = { ---@diagnostic disable-line: missing-fields
+			open = "botright vsplit | vertical resize 30",
+		},
 	})
 end)
 
