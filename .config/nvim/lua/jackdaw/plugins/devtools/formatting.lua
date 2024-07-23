@@ -19,7 +19,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			-- python = { "isort", "black" },
-			python = { "ruff" },
+			python = { "isort", "black" },
 			javascript = { { "prettierd", "prettier" } },
 		},
 		-- Set up format-on-save
