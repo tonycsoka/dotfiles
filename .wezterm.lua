@@ -83,9 +83,9 @@ config.keys = {
 config.window_decorations = "RESIZE"
 
 config.window_padding = {
-	left = 10,
-	right = 10,
-	top = 10,
+	left = 0,
+	right = 0,
+	top = 0,
 	bottom = 0,
 }
 config.enable_tab_bar = false
@@ -112,6 +112,7 @@ local function recompute_background(window)
 	local overrides = window:get_config_overrides() or {}
 	if window_dims.is_full_screen then
 		overrides.background = get_back(1.0)
+		overrides.macos_window_background_blur = 20
 	else
 		overrides.background = get_back(0.6)
 		overrides.macos_window_background_blur = 20
