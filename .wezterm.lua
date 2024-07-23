@@ -83,10 +83,10 @@ config.keys = {
 config.window_decorations = "RESIZE"
 
 config.window_padding = {
-	left = 0,
-	right = 0,
-	top = 0,
-	bottom = 0,
+	left = 10,
+	right = 10,
+	top = 10,
+	bottom = 10,
 }
 config.enable_tab_bar = false
 
