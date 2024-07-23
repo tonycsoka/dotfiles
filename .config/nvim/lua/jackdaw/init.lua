@@ -10,6 +10,9 @@ require("jackdaw.postfix").doit_highlights()
 vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", ctermbg = "none" })
+vim.api.nvim_set_hl(0, "NonText", { bg = "none", ctermbg = "none" })
+vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none", ctermbg = "none" })
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "none", ctermbg = "none" })
 
 local augroup = vim.api.nvim_create_augroup
 local yank_group = augroup("HighlightYank", {})

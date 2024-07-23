@@ -242,11 +242,12 @@ return {
 				},
 				winbar = {
 					lualine_a = {
+
 						{ "filetype", icon_only = true, icon = { align = "left" } },
 						{ "filename", file_status = false, path = 0 },
 					},
 					lualine_b = {},
-					lualine_c = { create_symbol_bar },
+					lualine_c = { { create_symbol_bar } },
 					lualine_x = {},
 					lualine_y = {},
 					lualine_z = {},
