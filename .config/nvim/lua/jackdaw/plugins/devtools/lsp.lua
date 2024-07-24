@@ -61,8 +61,16 @@ require("jackdaw.postfix").add(function()
 	local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 	for type, icon in pairs(signs) do
 		local hl = "DiagnosticSign" .. type
-		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl, bg = "none", ctermbg = "none" })
 	end
+end)
+
+require("jackdaw.postfix").add_highlights(function()
+	vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DiagnosticVirtualTextOk", { bg = "none", ctermbg = "none" })
 end)
 
 return {

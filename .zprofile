@@ -32,7 +32,7 @@ neo() {
   NVIM_APPNAME=$(basename $config) nvim
 }
 # Aliases
-alias ls='ls --color'
+alias ls='eza --icons'
 alias vim='nvim'
 alias c='clear'
 
