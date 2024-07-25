@@ -90,7 +90,7 @@ config.window_padding = {
 }
 config.enable_tab_bar = false
 
-local dimmer = { brightness = 0.06 }
+local dimmer = { brightness = 0.2 }
 
 local function get_back(opacity)
 	local backg = {
@@ -114,8 +114,8 @@ local function recompute_background(window)
 		overrides.background = get_back(1.0)
 		overrides.macos_window_background_blur = 20
 	else
-		overrides.background = get_back(0.6)
-		overrides.macos_window_background_blur = 20
+		overrides.background = get_back(0.4)
+		overrides.macos_window_background_blur = 30
 	end
 	window:set_config_overrides(overrides)
 end

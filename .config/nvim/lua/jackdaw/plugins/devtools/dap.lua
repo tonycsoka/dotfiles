@@ -27,6 +27,10 @@ require("jackdaw.postfix").add(function()
 			element = "repl",
 		},
 	})
+	require("nvim-dap-virtual-text").setup({
+		virt_text_pos = "eol",
+		all_references = true,
+	})
 
 	vim.fn.sign_define(
 		"DapBreakpoint",
@@ -50,6 +54,27 @@ require("jackdaw.postfix").add(function()
 	)
 end)
 
+require("jackdaw.postfix").add_highlights(function()
+	vim.api.nvim_set_hl(0, "DapUIPlayPause", { fg = "#A9FF68", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIRestart", { fg = "#A9FF68", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIStop", { fg = "#F70067", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIStepOut", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIStepBack", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIStepInto", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIStepOver", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
+
+	vim.api.nvim_set_hl(0, "DapUIPlayPauseNC", { fg = "#A9FF68", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIRestartNC", { fg = "#A9FF68", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIStopNC", { fg = "#F70067", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIStepOutNC", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIStepBackNC", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIStepIntoNC", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIStepOverNC", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
+
+	vim.api.nvim_set_hl(0, "DapUIUnavailable", { fg = "#424242", bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "DapUIUnavailableNC", { fg = "#424242", bg = "none", ctermbg = "none" })
+end)
+
 return {
 	{ "mfussenegger/nvim-dap" },
 	{
@@ -65,4 +90,5 @@ return {
 			"nvim-neotest/nvim-nio",
 		},
 	},
+	{ "theHamsta/nvim-dap-virtual-text" },
 }
