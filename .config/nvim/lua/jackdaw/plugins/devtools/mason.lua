@@ -11,6 +11,7 @@ return {
 		-- enable mason and configure icons
 		mason.setup({ ---@diagnostic disable-line: redundant-parameter
 			ui = {
+				border = "rounded",
 				icons = {
 					package_installed = "✓",
 					package_pending = "➜",
