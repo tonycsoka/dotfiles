@@ -15,7 +15,7 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = "kanagawabones"
+config.color_scheme = "catppuccin-mocha"
 config.font = wezterm.font("FiraCode Nerd Font")
 config.font_size = 15
 config.native_macos_fullscreen_mode = true
@@ -89,33 +89,35 @@ config.window_padding = {
 	bottom = 10,
 }
 config.enable_tab_bar = false
+config.window_background_opacity = 0.5
+config.text_background_opacity = 0.7
 
-local dimmer = { brightness = 0.2 }
+-- local dimmer = { brightness = 0.2 }
 
-local function get_back(opacity)
-	local backg = {
-		{
-			source = {
-				File = "/Users/tony/Downloads/thegirl.jpeg",
-			},
-			width = "100%",
-			repeat_x = "NoRepeat",
-			hsb = dimmer,
-			opacity = opacity,
-		},
-	}
-	return backg
-end
+-- local function get_back(opacity)
+-- 	local backg = {
+-- 		{
+-- 			-- source = {
+-- 			-- 	File = "/Users/tony/Downloads/thegirl.jpeg",
+-- 			-- },
+-- 			-- width = "100%",
+-- 			-- repeat_x = "NoRepeat",
+-- 			hsb = dimmer,
+-- 			opacity = opacity,
+-- 		},
+-- 	}
+-- 	return backg
+-- end
 
 local function recompute_background(window)
 	local window_dims = window:get_dimensions()
 	local overrides = window:get_config_overrides() or {}
 	if window_dims.is_full_screen then
-		overrides.background = get_back(1.0)
-		overrides.macos_window_background_blur = 20
+		-- overrides.background = get_back(1.0)
+		overrides.macos_window_background_blur = 100
 	else
-		overrides.background = get_back(0.4)
-		overrides.macos_window_background_blur = 30
+		-- overrides.background = get_back(0.4)
+		overrides.macos_window_background_blur = 100
 	end
 	window:set_config_overrides(overrides)
 end
