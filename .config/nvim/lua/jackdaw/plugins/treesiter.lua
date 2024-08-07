@@ -38,7 +38,7 @@ return {
 
 				highlight = {
 					-- `false` will disable the whole extension
-					enable = false,
+					enable = true,
 
 					-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
 					-- Set this to `true` if you depend on "syntax" being enabled (like for indentation).
@@ -46,8 +46,6 @@ return {
 					-- Instead of true it can also be a list of languages
 					-- additional_vim_regex_highlighting = { "markdown" },
 				},
-			})
-			require("nvim-treesitter.configs").setup({ ---@diagnostic disable-line: missing-fields
 				incremental_selection = {
 					enable = true,
 					keymaps = {
@@ -56,9 +54,6 @@ return {
 						scope_incremental = false,
 						node_decremental = "<bs>",
 					},
-				},
-				indent = {
-					enable = true,
 				},
 			})
 		end,

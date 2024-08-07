@@ -10,12 +10,12 @@ return {
 		cmd = "Trouble",
 		keys = {
 			{
-				"<leader>da",
+				"<leader>tda",
 				"<cmd>Trouble diagnostics toggle focus=true<cr>",
 				desc = "Diagnostics (Trouble)",
 			},
 			{
-				"<leader>db",
+				"<leader>tdb",
 				"<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>",
 				desc = "Buffer Diagnostics (Trouble)",
 			},

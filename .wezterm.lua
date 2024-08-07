@@ -89,7 +89,7 @@ config.window_padding = {
 	bottom = 10,
 }
 config.enable_tab_bar = false
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.75
 config.text_background_opacity = 0.95
 
 -- local dimmer = { brightness = 0.2 }
