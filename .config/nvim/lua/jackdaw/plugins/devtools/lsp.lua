@@ -16,6 +16,15 @@ require("jackdaw.postfix").add(function()
 				vim.keymap.set("n", keys, func, { buffer = e.buf, desc = desc })
 			end
 
+			local client = vim.lsp.get_client_by_id(e.data.client_id)
+			if client == nil then
+				return
+			end
+			if client.name == "ruff" then
+				-- Disable hover in favor of Pyright
+				client.server_capabilities.hoverProvider = false
+			end
+
 			set_keys("gd", function()
 				vim.lsp.buf.definition()
 			end, "Goto Definition")
@@ -105,6 +114,18 @@ return {
 					capabilities = capabilities,
 				})
 			end
+
+			require("lspconfig").ruff.setup({
+				init_options = {
+					settings = {
+						showSyntaxErrors = false,
+						organizeImports = false,
+						lint = {
+							enable = false,
+						},
+					},
+				},
+			})
 
 			-- luasnip setup
 			local luasnip = require("luasnip")
