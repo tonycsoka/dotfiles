@@ -111,7 +111,7 @@ return {
 			local branch_min_width = 10
 			lualine.setup({ ---@diagnostic disable-line: redundant-parameter
 				options = {
-					theme = "palenight",
+					theme = "catppuccin",
 					disabled_filetypes = { "dap-repl", winbar = excluded_filetypes_array },
 					globalstatus = true,
 				},
