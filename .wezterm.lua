@@ -92,32 +92,37 @@ config.enable_tab_bar = false
 config.window_background_opacity = 0.75
 config.text_background_opacity = 0.95
 
--- local dimmer = { brightness = 0.2 }
-
--- local function get_back(opacity)
--- 	local backg = {
--- 		{
--- 			-- source = {
--- 			-- 	File = "/Users/tony/Downloads/thegirl.jpeg",
--- 			-- },
--- 			-- width = "100%",
--- 			-- repeat_x = "NoRepeat",
--- 			hsb = dimmer,
--- 			opacity = opacity,
--- 		},
--- 	}
--- 	return backg
--- end
-
 local function recompute_background(window)
 	local window_dims = window:get_dimensions()
 	local overrides = window:get_config_overrides() or {}
 	if window_dims.is_full_screen then
-		-- overrides.background = get_back(1.0)
-		overrides.macos_window_background_blur = 100
+		if window_dims.pixel_height > window_dims.pixel_width then
+			overrides.window_background_image = "/Users/tony/Downloads/thegirl-v.jpg"
+		else
+			overrides.window_background_image = "/Users/tony/Downloads/thegirl.jpeg"
+		end
+
+		overrides.window_background_image_hsb = {
+			brightness = 0.2,
+			hue = 1.0,
+			saturation = 1.0,
+		}
+		overrides.macos_window_background_blur = 10
+		overrides.window_padding = {
+			left = 0,
+			right = 0,
+			top = 0,
+			bottom = 0,
+		}
 	else
-		-- overrides.background = get_back(0.4)
-		overrides.macos_window_background_blur = 100
+		overrides.window_background_image = ""
+		overrides.macos_window_background_blur = 10
+		overrides.window_padding = {
+			left = 10,
+			right = 10,
+			top = 10,
+			bottom = 10,
+		}
 	end
 	window:set_config_overrides(overrides)
 end

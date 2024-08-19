@@ -9,6 +9,8 @@ require("jackdaw.postfix").add(function()
 		command = [[%s/\s\+$//e]],
 	})
 
+	require("lspconfig.ui.windows").default_options.border = "single"
+
 	autocmd("LspAttach", {
 		group = jackdaw,
 		callback = function(e)
@@ -114,18 +116,6 @@ return {
 					capabilities = capabilities,
 				})
 			end
-
-			require("lspconfig").ruff.setup({
-				init_options = {
-					settings = {
-						showSyntaxErrors = false,
-						organizeImports = false,
-						lint = {
-							enable = false,
-						},
-					},
-				},
-			})
 
 			-- luasnip setup
 			local luasnip = require("luasnip")

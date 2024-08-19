@@ -32,5 +32,8 @@ yabai -m mouse_drop_action swap
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add app="^Telephone$" manage=off
+yabai -m rule --add app="^News$" manage=off
+yabai -m rule --add app="^Music$" manage=off
 
 borders active_color=0xffefa4fe inactive_color=0xaf5d7996 width=7.0 &

@@ -29,7 +29,6 @@ return {
 				"pylint", -- python linter
 				"flake8", -- python linter
 				"mypy", -- python linter
-				"ruff", -- python linter
 				"eslint_d", -- js linter
 				"pyright", -- python lsp
 				"clangd", -- c family lsp
