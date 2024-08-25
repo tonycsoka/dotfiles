@@ -35,7 +35,7 @@ require("jackdaw.postfix").add(function()
 				vim.lsp.buf.hover()
 			end, "Hover")
 
-			set_keys("gw", function()
+			set_keys("gS", function()
 				vim.lsp.buf.workspace_symbol()
 			end, "Workspace Symbol")
 
