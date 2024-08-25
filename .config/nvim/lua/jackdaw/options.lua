@@ -37,3 +37,9 @@ vim.opt.foldlevelstart = 1
 vim.opt.foldenable = false
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+vim.opt.splitright = true
+
+vim.diagnostic.config({
+	float = { border = "rounded" },
+})
