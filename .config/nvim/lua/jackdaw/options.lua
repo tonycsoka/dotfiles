@@ -43,3 +43,5 @@ vim.opt.splitright = true
 vim.diagnostic.config({
 	float = { border = "rounded" },
 })
+
+vim.opt.textwidth = 100
