@@ -35,7 +35,7 @@ return {
 				"lua_ls", -- lua lsp
 				"debugpy", -- python dap
 				"codelldb", -- c family debugger
-				"sourcery",
+				"sourcery", -- multi language AI code actions
 			},
 		})
 	end,

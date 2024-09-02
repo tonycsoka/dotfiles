@@ -59,11 +59,11 @@ require("jackdaw.postfix").add(function()
 				vim.lsp.buf.signature_help()
 			end, "Signature Help")
 
-			set_keys("[d", function()
+			set_keys("]d", function()
 				vim.diagnostic.goto_next()
 			end, "Next Diagnostic")
 
-			set_keys("]d", function()
+			set_keys("[d", function()
 				vim.diagnostic.goto_prev()
 			end, "Pervious Diagnostic")
 		end,
@@ -104,8 +104,11 @@ return {
 		},
 		config = function()
 			local handlers = {
-				["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-				["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+				["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = "rounded" }),
+				["textDocument/signatureHelp"] = vim.lsp.with(
+					vim.lsp.handlers.signature_help,
+					{ silent = true, border = "rounded" }
+				),
 			}
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -130,6 +133,7 @@ return {
 			end
 
 			lspconfig.sourcery.setup({
+				handlers = handlers,
 				init_options = {
 					token = get_token(),
 				},
