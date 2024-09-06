@@ -1,160 +1,147 @@
 require("jackdaw.postfix").add(function()
 	local layers = require("layers").setup({})
-	local mode = layers.mode.new()
 
-	mode:auto_show_help()
+	local make_mode = function(opts)
+		local mode = layers.mode.new()
 
-	vim.keymap.set("n", "<leader>r", function()
-		mode.window.config.title = "Refactor Mode"
-		if mode:active() then
-			mode:deactivate()
-		else
-			mode:activate()
-		end
-	end, { desc = "Refactor Mode" })
+		mode:auto_show_help()
 
-	mode:keymaps({
-		n = {
-			{
-				"n",
-				function()
-					vim.diagnostic.goto_next()
-				end,
-				{ desc = "Next diagnostic" },
-			},
-			{
-				"p",
-				function()
-					vim.diagnostic.goto_prev()
-				end,
-				{ desc = "Previous diagnostic" },
-			},
-			{
-				"a",
-				function()
-					vim.lsp.buf.code_action()
-				end,
-				{ desc = "Code Actions" },
-			},
-			{
-				"r",
-				function()
-					vim.lsp.buf.rename()
-				end,
-				{ desc = "Rename" },
-			},
-			{
-				"d",
-				function()
-					vim.diagnostic.open_float()
-				end,
-				{ desc = "Diagnostic" },
-			},
-			{
-				"w",
-				"gww",
-				{ desc = "Format comments" },
-			},
-			{
-				"q",
-				function()
-					mode:deactivate()
-				end,
-				{ desc = "quit" },
+		vim.keymap.set("n", opts.mode_key, function()
+			mode.window.config.title = opts.title
+			if mode:active() then
+				mode:deactivate()
+			else
+				mode:activate()
+			end
+		end, { desc = "Toggle " .. opts.title })
+
+		mode:keymaps(opts.keymaps)
+	end
+
+	make_mode({
+		mode_key = "<leader>r",
+		title = "Refactor Mode",
+		keymaps = {
+			n = {
+				{
+					"n",
+					function()
+						vim.diagnostic.goto_next()
+					end,
+					{ desc = "Next diagnostic" },
+				},
+				{
+					"p",
+					function()
+						vim.diagnostic.goto_prev()
+					end,
+					{ desc = "Previous diagnostic" },
+				},
+				{
+					"a",
+					function()
+						vim.lsp.buf.code_action()
+					end,
+					{ desc = "Code Actions" },
+				},
+				{
+					"r",
+					function()
+						vim.lsp.buf.rename()
+					end,
+					{ desc = "Rename" },
+				},
+				{
+					"d",
+					function()
+						vim.diagnostic.open_float()
+					end,
+					{ desc = "Diagnostic" },
+				},
+				{
+					"w",
+					"gww",
+					{ desc = "Format comments" },
+				},
 			},
 		},
 	})
 
-	local debug_mode = layers.mode.new()
-	debug_mode:auto_show_help()
-
-	vim.keymap.set("n", "<leader>dd", function()
-		debug_mode.window.config.title = "Debug Mode"
-		if debug_mode:active() then
-			debug_mode:deactivate()
-		else
-			debug_mode:activate()
-		end
-	end, { desc = "Refactor Mode" })
-
-	debug_mode:keymaps({
-		n = {
-			{
-				"c",
-				function()
-					require("dap").continue()
-				end,
-				{ desc = "Continue" },
-			},
-			{
-				"b",
-				function()
-					require("dap").toggle_breakpoint()
-				end,
-				{ desc = "Toggle breakpoint" },
-			},
-			{
-				"i",
-				function()
-					require("dap").step_into()
-				end,
-				{ desc = "DAP Step into" },
-			},
-			{
-				"o",
-				function()
-					require("dap").step_over()
-				end,
-				{ desc = "DAP Step over" },
-			},
-			{
-				"u",
-				function()
-					require("dapui").toggle()
-				end,
-				{ desc = "DAP Toggle UI" },
-			},
-			{
-				"t",
-				function()
-					require("neotest").run.run()
-				end,
-				{ desc = "Run nearest test" },
-			},
-			{
-				"T",
-				function()
-					require("neotest").run.run({ strategy = "dap" }) ---@diagnostic disable-line: missing-fields
-				end,
-				{ desc = "Debug nearest test" },
-			},
-			{
-				"f",
-				function()
-					require("neotest").run.run()
-				end,
-				{ desc = "Run all tests" },
-			},
-			{
-				"F",
-				function()
-					require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" }) ---@diagnostic disable-line: missing-fields
-				end,
-				{ desc = "Debug all tests" },
-			},
-			{
-				"s",
-				function()
-					require("neotest").summary.toggle() ---@diagnostic disable-line: missing-fields
-				end,
-				{ desc = "Test Summary Toggle" },
-			},
-			{
-				"q",
-				function()
-					debug_mode:deactivate()
-				end,
-				{ desc = "quit" },
+	make_mode({
+		mode_key = "<leader>dd",
+		title = "Debug Mode",
+		keymaps = {
+			n = {
+				{
+					"c",
+					function()
+						require("dap").continue()
+					end,
+					{ desc = "Continue" },
+				},
+				{
+					"b",
+					function()
+						require("dap").toggle_breakpoint()
+					end,
+					{ desc = "Toggle breakpoint" },
+				},
+				{
+					"i",
+					function()
+						require("dap").step_into()
+					end,
+					{ desc = "DAP Step into" },
+				},
+				{
+					"o",
+					function()
+						require("dap").step_over()
+					end,
+					{ desc = "DAP Step over" },
+				},
+				{
+					"u",
+					function()
+						require("dapui").toggle()
+					end,
+					{ desc = "DAP Toggle UI" },
+				},
+				{
+					"t",
+					function()
+						require("neotest").run.run()
+					end,
+					{ desc = "Run nearest test" },
+				},
+				{
+					"T",
+					function()
+						require("neotest").run.run({ strategy = "dap" }) ---@diagnostic disable-line: missing-fields
+					end,
+					{ desc = "Debug nearest test" },
+				},
+				{
+					"f",
+					function()
+						require("neotest").run.run()
+					end,
+					{ desc = "Run all tests" },
+				},
+				{
+					"F",
+					function()
+						require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" }) ---@diagnostic disable-line: missing-fields
+					end,
+					{ desc = "Debug all tests" },
+				},
+				{
+					"s",
+					function()
+						require("neotest").summary.toggle() ---@diagnostic disable-line: missing-fields
+					end,
+					{ desc = "Test Summary Toggle" },
+				},
 			},
 		},
 	})
