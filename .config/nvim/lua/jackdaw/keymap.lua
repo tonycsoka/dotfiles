@@ -2,6 +2,8 @@ vim.keymap.set("n", " ", "<Nop>", { silent = true })
 
 vim.keymap.set("v", ">", ">gv2l")
 vim.keymap.set("v", "<", "<gv2h")
+vim.keymap.set("n", ">", ">>2l")
+vim.keymap.set("n", "<", "<<2h")
 
 vim.keymap.set("n", "<leader>c", "<cmd>bd<cr>", { desc = "Close current buffer" })
 

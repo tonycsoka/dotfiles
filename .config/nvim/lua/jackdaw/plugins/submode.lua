@@ -6,7 +6,11 @@ require("jackdaw.postfix").add(function()
 
 	vim.keymap.set("n", "<leader>r", function()
 		mode.window.config.title = "Refactor Mode"
-		mode:activate()
+		if mode:active() then
+			mode:deactivate()
+		else
+			mode:activate()
+		end
 	end, { desc = "Refactor Mode" })
 
 	mode:keymaps({
@@ -24,6 +28,27 @@ require("jackdaw.postfix").add(function()
 					vim.diagnostic.goto_prev()
 				end,
 				{ desc = "Previous diagnostic" },
+			},
+			{
+				"a",
+				function()
+					vim.lsp.buf.code_action()
+				end,
+				{ desc = "Code Actions" },
+			},
+			{
+				"r",
+				function()
+					vim.lsp.buf.rename()
+				end,
+				{ desc = "Rename" },
+			},
+			{
+				"d",
+				function()
+					vim.diagnostic.open_float()
+				end,
+				{ desc = "Diagnostic" },
 			},
 			{
 				"w",
@@ -45,7 +70,11 @@ require("jackdaw.postfix").add(function()
 
 	vim.keymap.set("n", "<leader>dd", function()
 		debug_mode.window.config.title = "Debug Mode"
-		debug_mode:activate()
+		if debug_mode:active() then
+			debug_mode:deactivate()
+		else
+			debug_mode:activate()
+		end
 	end, { desc = "Refactor Mode" })
 
 	debug_mode:keymaps({
