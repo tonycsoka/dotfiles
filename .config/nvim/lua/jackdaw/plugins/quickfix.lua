@@ -35,4 +35,8 @@ return {
 		event = "FileType qf",
 		opts = {},
 	},
+	{
+		"kevinhwang91/nvim-bqf",
+		event = "FileType qf",
+	},
 }
