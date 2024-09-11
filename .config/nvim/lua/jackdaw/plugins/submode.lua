@@ -68,7 +68,7 @@ require("jackdaw.postfix").add(function()
 	})
 
 	make_mode({
-		mode_key = "<leader>dd",
+		mode_key = "<leader>d",
 		title = "Debug Mode",
 		keymaps = {
 			n = {
@@ -78,6 +78,20 @@ require("jackdaw.postfix").add(function()
 						require("dap").continue()
 					end,
 					{ desc = "Continue" },
+				},
+				{
+					"h",
+					function()
+						require("dap").stop()
+					end,
+					{ desc = "Stop" },
+				},
+				{
+					"r",
+					function()
+						require("dap").run_last()
+					end,
+					{ desc = "Run last" },
 				},
 				{
 					"b",
@@ -91,21 +105,21 @@ require("jackdaw.postfix").add(function()
 					function()
 						require("dap").step_into()
 					end,
-					{ desc = "DAP Step into" },
+					{ desc = "Step into" },
 				},
 				{
 					"o",
 					function()
 						require("dap").step_over()
 					end,
-					{ desc = "DAP Step over" },
+					{ desc = "Step over" },
 				},
 				{
 					"u",
 					function()
 						require("dapui").toggle()
 					end,
-					{ desc = "DAP Toggle UI" },
+					{ desc = "Toggle UI" },
 				},
 				{
 					"t",
