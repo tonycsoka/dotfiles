@@ -7,6 +7,12 @@ vim.keymap.set("n", "<", "<<2h")
 
 vim.keymap.set("n", "<leader>c", "<cmd>bd<cr>", { desc = "Close current buffer" })
 
+vim.keymap.set("n", "<c-h>", "<c-w>h", { desc = "Move left" })
+vim.keymap.set("n", "<c-l>", "<c-w>l", { desc = "Move right" })
+vim.keymap.set("n", "<c-j>", "<c-w>j", { desc = "Move down" })
+vim.keymap.set("n", "<c-k>", "<c-w>k", { desc = "Move up" })
+vim.keymap.set("n", "<cr>", "<c-w>w", { desc = "Next split" })
+
 -- need to move the rest out
 
 vim.keymap.set("x", "<leader>/", ":Commentary<cr>")
