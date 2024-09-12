@@ -80,7 +80,7 @@ require("jackdaw.postfix").add(function()
 					{ desc = "Continue" },
 				},
 				{
-					"h",
+					"x",
 					function()
 						require("dap").close()
 					end,
