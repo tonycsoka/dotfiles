@@ -31,6 +31,10 @@ require("jackdaw.postfix").add(function()
 				vim.lsp.buf.definition()
 			end, "Goto Definition")
 
+			set_keys("gf", function()
+				vim.lsp.buf.declaration()
+			end, "Goto Declaration")
+
 			set_keys("K", function()
 				vim.lsp.buf.hover()
 			end, "Hover")
