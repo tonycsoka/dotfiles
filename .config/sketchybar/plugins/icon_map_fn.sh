@@ -648,6 +648,9 @@ function __icon_map() {
    "Zulip")
         icon_result=":zulip:"
         ;;
+    "News")
+        icon_result="􀤦"
+        ;;
     *)
         icon_result=":default:"
         ;;

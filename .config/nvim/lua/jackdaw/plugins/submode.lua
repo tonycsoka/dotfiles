@@ -24,21 +24,21 @@ require("jackdaw.postfix").add(function()
 		keymaps = {
 			n = {
 				{
-					"n",
+					"=",
 					function()
 						vim.diagnostic.goto_next()
 					end,
 					{ desc = "Next diagnostic" },
 				},
 				{
-					"p",
+					"+",
 					function()
 						vim.diagnostic.goto_prev()
 					end,
 					{ desc = "Previous diagnostic" },
 				},
 				{
-					"a",
+					"A",
 					function()
 						vim.lsp.buf.code_action()
 					end,
@@ -52,14 +52,14 @@ require("jackdaw.postfix").add(function()
 					{ desc = "Rename" },
 				},
 				{
-					"d",
+					"D",
 					function()
 						vim.diagnostic.open_float()
 					end,
 					{ desc = "Diagnostic" },
 				},
 				{
-					"w",
+					"g",
 					"gww",
 					{ desc = "Format comments" },
 				},
