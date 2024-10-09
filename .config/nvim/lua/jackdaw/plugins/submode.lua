@@ -59,7 +59,7 @@ require("jackdaw.postfix").add(function()
 					{ desc = "Diagnostic" },
 				},
 				{
-					"g",
+					"t",
 					"gww",
 					{ desc = "Format comments" },
 				},
