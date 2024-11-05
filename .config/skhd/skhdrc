@@ -1,5 +1,6 @@
 
 cmd - return : /Applications/WezTerm.app/Contents/MacOS/wezterm-gui
+cmd - f : /Applications/WezTerm.app/Contents/MacOS/wezterm-gui start -- yazi
 
 # -- Changing Window Focus --
 

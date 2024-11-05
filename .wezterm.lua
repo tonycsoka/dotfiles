@@ -78,6 +78,11 @@ config.keys = {
 			size = { Percent = 70 },
 		}),
 	},
+	{
+		key = "w",
+		mods = "CMD",
+		action = wezterm.action.CloseCurrentTab({ confirm = false }),
+	},
 }
 
 config.window_decorations = "RESIZE"
