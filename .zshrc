@@ -106,7 +106,7 @@ neo() {
   NVIM_APPNAME=$(basename $config) nvim
 }
 # Aliases
-alias ls='eza --icons'
+alias ls='eza --icons auto'
 alias vim='nvim'
 alias c='clear'
 
@@ -114,3 +114,5 @@ alias cd="z"
 
 alias dotfiles='/usr/bin/git --git-dir=/Users/tony/.dotfiles/ --work-tree=/Users/tony'
 alias lazydot='lazygit -g $HOME/.dotfiles -w $HOME'
+
+alias gnvim='NVIM_APPNAME=nvim-global nvim'
