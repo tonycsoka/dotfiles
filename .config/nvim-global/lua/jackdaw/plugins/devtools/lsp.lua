@@ -129,6 +129,16 @@ return {
 				})
 			end
 
+			-- local pyright_lsp = require("lspconfig").pyright
+			-- pyright_lsp.setup({
+			-- 	settings = {
+			-- 		pyright = {
+			-- 			-- Pyright settings
+			-- 			disableOrganizeImports = true,
+			-- 		},
+			-- 	},
+			-- })
+
 			local get_token = function()
 				local openPop = assert(io.popen("pass api/sourcery"))
 				local token = openPop:read("*all"):sub(1, -2)
