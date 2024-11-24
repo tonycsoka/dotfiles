@@ -1,6 +1,9 @@
 
 cmd - return : /Applications/WezTerm.app/Contents/MacOS/wezterm-gui
-cmd - f : /Applications/WezTerm.app/Contents/MacOS/wezterm-gui start -- yazi
+cmd + ctrl - f : /Applications/WezTerm.app/Contents/MacOS/wezterm-gui start -- yazi
+cmd + ctrl - m : /Applications/WezTerm.app/Contents/MacOS/wezterm-gui start -- musikcube
+cmd + ctrl - b : "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+cmd + ctrl - s : /Applications/Safari.app/Contents/MacOS/Safari
 
 # -- Changing Window Focus --
 
@@ -10,7 +13,7 @@ alt - k : yabai -m window --focus north
 alt - h : yabai -m window --focus west
 alt - l : yabai -m window --focus east
 
-#change focus between external displays (left and right)
+# change focus between external displays (left and right)
 alt - s: yabai -m display --focus west
 alt - g: yabai -m display --focus east
 
@@ -68,6 +71,9 @@ shift + alt - 4 : yabai -m window --space 4;
 shift + alt - 5 : yabai -m window --space 5;
 shift + alt - 6 : yabai -m window --space 6;
 shift + alt - 7 : yabai -m window --space 7;
+shift + alt - 8 : yabai -m window --space 8;
+shift + alt - 9 : yabai -m window --space 9;
+shift + alt - 0 : yabai -m window --space 10;
 
 # -- Starting/Stopping/Restarting Yabai --
 
