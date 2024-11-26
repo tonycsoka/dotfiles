@@ -120,7 +120,7 @@ return {
 			local lspconfig = require("lspconfig")
 
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-			local servers = { "clangd", "rust_analyzer", "pyright", "ts_ls", "lua_ls" }
+			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls" }
 			for _, lsp in ipairs(servers) do
 				lspconfig[lsp].setup({
 					-- on_attach = my_custom_on_attach,
@@ -139,9 +139,14 @@ return {
 					python = {
 						analysis = {
 							typeCheckingMode = "off",
+							autoSearchPaths = true,
+							useLibraryCodeForTypes = true,
+							diagnosticMode = "workspace",
 						},
 					},
 				},
+				capabilities = capabilities,
+				handlers = handlers,
 			})
 
 			local get_token = function()
@@ -199,9 +204,9 @@ return {
 				}),
 				sources = {
 					{ name = "path" },
-					{ name = "nvim_lsp", keyword_length = 1 },
-					{ name = "buffer", keyword_length = 1 },
-					{ name = "luasnip", keyword_length = 2 },
+					{ name = "nvim_lsp" },
+					{ name = "buffer" },
+					{ name = "luasnip" },
 				},
 				window = {
 					documentation = cmp.config.window.bordered(),
