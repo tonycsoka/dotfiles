@@ -121,7 +121,7 @@ return {
 			local lspconfig = require("lspconfig")
 
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-			local servers = { "clangd", "pylsp", "rust_analyzer", "ts_ls", "lua_ls" }
+			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls" }
 			for _, lsp in ipairs(servers) do
 				lspconfig[lsp].setup({
 					-- on_attach = my_custom_on_attach,
@@ -129,6 +129,27 @@ return {
 					handlers = handlers,
 				})
 			end
+
+			require("lspconfig").pylsp.setup({
+				settings = {
+					pylsp = {
+						plugins = {
+							-- rope_completion = {
+							-- 	enabled = true,
+							-- 	eager = true,
+							-- },
+							-- rope_autoimport = {
+							-- 	enabled = true,
+							-- },
+							pylsp_mypy = {
+								enabled = false,
+							},
+						},
+					},
+				},
+				capabilities = capabilities,
+				handlers = handlers,
+			})
 
 			-- local pyright_lsp = require("lspconfig").pyright
 			-- pyright_lsp.setup({
