@@ -24,15 +24,11 @@ return {
 			ensure_installed = {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
-				"isort", -- python formatter
-				"black", -- python formatter
-				"pylint", -- python linter
-				"flake8", -- python linter
 				"mypy", -- python linter
 				"ruff", -- python linter / formatter
 				"eslint_d", -- js linter
 				"pyright", -- python lsp
-				"python-lsp-server", -- python lsp
+				"basedpyright", -- python lsp
 				"clangd", -- c family lsp
 				"lua_ls", -- lua lsp
 				"debugpy", -- python dap

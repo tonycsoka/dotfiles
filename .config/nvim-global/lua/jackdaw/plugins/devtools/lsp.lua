@@ -130,47 +130,50 @@ return {
 				})
 			end
 
-			require("lspconfig").pylsp.setup({
+			-- require("lspconfig").pylsp.setup({
+			-- 	settings = {
+			-- 		pylsp = {
+			-- 			plugins = {
+			-- 				-- rope_completion = {
+			-- 				-- 	enabled = true,
+			-- 				-- 	eager = true,
+			-- 				-- },
+			-- 				-- rope_autoimport = {
+			-- 				-- 	enabled = true,
+			-- 				-- },
+			-- 				pylsp_mypy = {
+			-- 					enabled = false,
+			-- 				},
+			-- 				jedi_completion = {
+			-- 					enabled = true,
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- 	capabilities = capabilities,
+			-- 	handlers = handlers,
+			-- })
+
+			local pyright_lsp = require("lspconfig").basedpyright
+			pyright_lsp.setup({
 				settings = {
-					pylsp = {
-						plugins = {
-							-- rope_completion = {
-							-- 	enabled = true,
-							-- 	eager = true,
-							-- },
-							-- rope_autoimport = {
-							-- 	enabled = true,
-							-- },
-							pylsp_mypy = {
-								enabled = false,
-							},
+					basedpyright = {
+						-- Pyright settings
+						disableOrganizeImports = true,
+						-- },
+						-- python = {
+						analysis = {
+							typeCheckingMode = "off",
+							autoSearchPaths = true,
+							useLibraryCodeForTypes = true,
+							diagnosticMode = "workspace",
+							autoImportCompletions = true,
 						},
 					},
 				},
 				capabilities = capabilities,
 				handlers = handlers,
 			})
-
-			-- local pyright_lsp = require("lspconfig").pyright
-			-- pyright_lsp.setup({
-			-- 	settings = {
-			-- 		pyright = {
-			-- 			-- Pyright settings
-			-- 			disableOrganizeImports = true,
-			-- 		},
-			-- 		-- 		python = {
-			-- 		-- 			analysis = {
-			-- 		-- 				typeCheckingMode = "off",
-			-- 		-- 				autoSearchPaths = true,
-			-- 		-- 				useLibraryCodeForTypes = true,
-			-- 		-- 				diagnosticMode = "workspace",
-			-- 		-- 				autoImportCompletions = true,
-			-- 		-- 			},
-			-- 		-- 		},
-			-- 	},
-			-- 	capabilities = capabilities,
-			-- 	handlers = handlers,
-			-- })
 
 			local get_token = function()
 				local openPop = assert(io.popen("pass api/sourcery"))
