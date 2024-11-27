@@ -117,10 +117,11 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
+			require("mason-lspconfig").setup()
 			local lspconfig = require("lspconfig")
 
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls" }
+			local servers = { "clangd", "pylsp", "rust_analyzer", "ts_ls", "lua_ls" }
 			for _, lsp in ipairs(servers) do
 				lspconfig[lsp].setup({
 					-- on_attach = my_custom_on_attach,
@@ -129,25 +130,26 @@ return {
 				})
 			end
 
-			local pyright_lsp = require("lspconfig").pyright
-			pyright_lsp.setup({
-				settings = {
-					pyright = {
-						-- Pyright settings
-						disableOrganizeImports = true,
-					},
-					python = {
-						analysis = {
-							typeCheckingMode = "off",
-							autoSearchPaths = true,
-							useLibraryCodeForTypes = true,
-							diagnosticMode = "workspace",
-						},
-					},
-				},
-				capabilities = capabilities,
-				handlers = handlers,
-			})
+			-- local pyright_lsp = require("lspconfig").pyright
+			-- pyright_lsp.setup({
+			-- 	settings = {
+			-- 		pyright = {
+			-- 			-- Pyright settings
+			-- 			disableOrganizeImports = true,
+			-- 		},
+			-- 		-- 		python = {
+			-- 		-- 			analysis = {
+			-- 		-- 				typeCheckingMode = "off",
+			-- 		-- 				autoSearchPaths = true,
+			-- 		-- 				useLibraryCodeForTypes = true,
+			-- 		-- 				diagnosticMode = "workspace",
+			-- 		-- 				autoImportCompletions = true,
+			-- 		-- 			},
+			-- 		-- 		},
+			-- 	},
+			-- 	capabilities = capabilities,
+			-- 	handlers = handlers,
+			-- })
 
 			local get_token = function()
 				local openPop = assert(io.popen("pass api/sourcery"))

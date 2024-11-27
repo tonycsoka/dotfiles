@@ -32,6 +32,7 @@ return {
 				"ruff", -- python linter / formatter
 				"eslint_d", -- js linter
 				"pyright", -- python lsp
+				"python-lsp-server", -- python lsp
 				"clangd", -- c family lsp
 				"lua_ls", -- lua lsp
 				"debugpy", -- python dap
