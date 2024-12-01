@@ -100,6 +100,10 @@ return {
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/nvim-cmp",
 			{
+				"mistweaverco/kulala-cmp-graphql.nvim",
+				opts = {},
+			},
+			{
 				"L3MON4D3/LuaSnip",
 				dependencies = { "rafamadriz/friendly-snippets" },
 			},
@@ -252,6 +256,13 @@ return {
 						return item
 					end,
 				},
+			})
+			cmp.setup.filetype("http", {
+				sources = cmp.config.sources({
+					{ name = "kulala-cmp-graphql" },
+				}, {
+					{ name = "buffer" },
+				}),
 			})
 		end,
 	},

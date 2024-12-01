@@ -4,7 +4,6 @@ vim.api.nvim_create_user_command("VPNStop", '!scutil --nc stop "Global VPN Break
 local Terminal = require("toggleterm.terminal").Terminal
 
 local git_tui = "lazydocker"
--- local git_tui = "gitui"
 
 local git_client = Terminal:new({
 	cmd = git_tui,
