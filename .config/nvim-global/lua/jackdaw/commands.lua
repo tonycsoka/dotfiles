@@ -17,13 +17,9 @@ vim.api.nvim_create_user_command("LazyDocker", function()
 end, {})
 
 vim.api.nvim_create_user_command("VPN", function(opts)
-	if opts.args == "stop" then
-		vim.system({ "scutil", "--nc", "stop", "Global VPN Breakglass" }, {}, function()
-			print("VPN Stopped")
-		end)
-	elseif opts.args == "start" then
-		vim.system({ "scutil", "--nc", "start", "Global VPN Breakglass" }, {}, function()
-			print("VPN Started")
+	if string.find("start stop", opts.args) then
+		vim.system({ "scutil", "--nc", opts.args, "Global VPN Breakglass" }, {}, function()
+			print("VPN : " .. opts.args)
 		end)
 	else
 		print("Unknown arg: " .. opts.args .. ". Expect 'start' or 'stop'")
