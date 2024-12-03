@@ -18,7 +18,7 @@
     (identifier)
     (string
       (string_content) @injection.content
-      (#contains? @injection.content "query")
+      (#match? @injection.content " query ")
       (#set! injection.language "graphql")
     )
   )
