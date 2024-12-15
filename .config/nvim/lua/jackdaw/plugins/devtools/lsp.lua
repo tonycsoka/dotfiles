@@ -122,7 +122,7 @@ return {
 			local lspconfig = require("lspconfig")
 
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-			local servers = { "clangd", "rust_analyzer", "pyright", "ts_ls", "lua_ls" }
+			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls" }
 			for _, lsp in ipairs(servers) do
 				lspconfig[lsp].setup({
 					-- on_attach = my_custom_on_attach,
@@ -130,6 +130,27 @@ return {
 					handlers = handlers,
 				})
 			end
+
+			local pyright_lsp = require("lspconfig").basedpyright
+			pyright_lsp.setup({
+				settings = {
+					basedpyright = {
+						-- Pyright settings
+						disableOrganizeImports = true,
+						-- },
+						-- python = {
+						analysis = {
+							typeCheckingMode = "off",
+							autoSearchPaths = true,
+							useLibraryCodeForTypes = true,
+							diagnosticMode = "workspace",
+							autoImportCompletions = true,
+						},
+					},
+				},
+				capabilities = capabilities,
+				handlers = handlers,
+			})
 
 			local get_token = function()
 				local openPop = assert(io.popen("pass api/sourcery"))

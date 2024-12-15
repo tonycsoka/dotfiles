@@ -31,7 +31,9 @@ return {
 				"flake8", -- python linter
 				"mypy", -- python linter
 				"eslint_d", -- js linter
+				"typescript-language-server", -- ts lsp
 				"pyright", -- python lsp
+				"basedpyright", -- python lsp
 				"clangd", -- c family lsp
 				"lua_ls", -- lua lsp
 				"debugpy", -- python dap
