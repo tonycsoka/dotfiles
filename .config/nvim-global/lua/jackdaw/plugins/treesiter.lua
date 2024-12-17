@@ -4,6 +4,7 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
 		config = function()
+			---@class ParserInfo
 			local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 			parser_config.gherkin = {
 				install_info = {
@@ -16,6 +17,7 @@ return {
 				},
 				filetype = "cucumber", -- if filetype does not match the parser name
 			}
+
 			require("nvim-treesitter.configs").setup({ ---@diagnostic disable-line: missing-fields
 				-- A list of parser names, or "all"
 				ensure_installed = {
