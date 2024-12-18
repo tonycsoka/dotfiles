@@ -2,6 +2,7 @@ require("jackdaw.postfix").add(function()
 	require("neotest").setup({ ---@diagnostic disable-line: missing-fields
 		adapters = {
 			require("neotest-python"),
+			require("neotest-behave"),
 		},
 		summary = { ---@diagnostic disable-line: missing-fields
 			open = "botright vsplit | vertical resize 30",
@@ -21,6 +22,12 @@ return {
 	},
 	{
 		"nvim-neotest/neotest-python",
+		dependencies = {
+			"nvim-neotest/neotest",
+		},
+	},
+	{
+		dir = "~/Work/Personal/neotest-behave",
 		dependencies = {
 			"nvim-neotest/neotest",
 		},
