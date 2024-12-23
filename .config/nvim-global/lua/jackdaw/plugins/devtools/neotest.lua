@@ -1,6 +1,7 @@
 require("jackdaw.postfix").add(function()
 	require("neotest").setup({ ---@diagnostic disable-line: missing-fields
 		adapters = {
+			require("neotest-behave"),
 			require("neotest-python")({
 				dap = {
 					name = "Attach",
@@ -37,6 +38,12 @@ return {
 	},
 	{
 		"nvim-neotest/neotest-python",
+		dependencies = {
+			"nvim-neotest/neotest",
+		},
+	},
+	{
+		"tonycsoka/neotest-behave",
 		dependencies = {
 			"nvim-neotest/neotest",
 		},
