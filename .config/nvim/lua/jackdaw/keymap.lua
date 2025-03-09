@@ -5,6 +5,11 @@ vim.keymap.set("v", "<", "<gv2h")
 vim.keymap.set("n", ">", ">>2l")
 vim.keymap.set("n", "<", "<<2h")
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "J", ":m .+1<CR>==")
+vim.keymap.set("n", "K", ":m .-2<CR>==")
+
 vim.keymap.set("n", "<leader>c", "<cmd>bd<cr>", { desc = "Close current buffer" })
 
 vim.keymap.set("n", "<c-h>", "<c-w>h", { desc = "Move left (split)" })

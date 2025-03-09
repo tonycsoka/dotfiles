@@ -7,7 +7,7 @@
     (identifier)
     (string
       (string_content) @injection.content
-      (#contains? @injection.content "mutation")
+      (#contains? @injection.content "mutation ")
       (#set! injection.language "graphql")
     )
   )
@@ -18,7 +18,7 @@
     (identifier)
     (string
       (string_content) @injection.content
-      (#match? @injection.content " query ")
+      (#match? @injection.content "query ")
       (#set! injection.language "graphql")
     )
   )

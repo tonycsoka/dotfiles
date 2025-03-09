@@ -250,7 +250,15 @@ return {
 					lualine_c = { { create_symbol_bar } },
 					lualine_x = {},
 					lualine_y = {},
-					lualine_z = {},
+					lualine_z = {
+						{
+							function()
+								return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+							end,
+							icon = "",
+							separator = "",
+						},
+					},
 				},
 				inactive_winbar = {
 					lualine_a = {
