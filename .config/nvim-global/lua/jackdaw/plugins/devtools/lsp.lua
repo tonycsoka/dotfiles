@@ -179,19 +179,19 @@ return {
 				handlers = handlers,
 			})
 
-			local get_token = function()
-				local openPop = assert(io.popen("pass api/sourcery"))
-				local token = openPop:read("*all"):sub(1, -2)
-				openPop:close()
-				return token
-			end
+			-- local get_token = function()
+			-- 	local openPop = assert(io.popen("pass api/sourcery"))
+			-- 	local token = openPop:read("*all"):sub(1, -2)
+			-- 	openPop:close()
+			-- 	return token
+			-- end
 
-			lspconfig.sourcery.setup({
-				handlers = handlers,
-				init_options = {
-					token = get_token(),
-				},
-			})
+			-- lspconfig.sourcery.setup({
+			-- 	handlers = handlers,
+			-- 	init_options = {
+			-- 		token = get_token(),
+			-- 	},
+			-- })
 
 			-- luasnip setup
 			local luasnip = require("luasnip")
