@@ -26,14 +26,14 @@ require("jackdaw.postfix").add(function()
 				{
 					"=",
 					function()
-						vim.diagnostic.goto_next()
+						vim.diagnostic.jump({ count = 1, float = true })
 					end,
 					{ desc = "Next diagnostic" },
 				},
 				{
 					"+",
 					function()
-						vim.diagnostic.goto_prev()
+						vim.diagnostic.jump({ count = -1, float = true })
 					end,
 					{ desc = "Previous diagnostic" },
 				},

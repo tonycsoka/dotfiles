@@ -109,6 +109,7 @@ return {
 			end
 			local branch_max_width = 40
 			local branch_min_width = 10
+
 			lualine.setup({ ---@diagnostic disable-line: redundant-parameter
 				options = {
 					theme = "catppuccin",
@@ -244,7 +245,17 @@ return {
 					lualine_a = {
 
 						{ "filetype", icon_only = true, icon = { align = "left" } },
-						{ "filename", file_status = false, path = 0 },
+						{
+							"filename",
+							file_status = true,
+							path = 0,
+							symbols = {
+								modified = "[+]", -- Text to show when the file is modified.
+								readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
+								unnamed = "[No Name]", -- Text to show for unnamed buffers.
+								newfile = "[∅]", -- Text to show for newly created file before first write
+							},
+						},
 					},
 					lualine_b = {},
 					lualine_c = { { create_symbol_bar } },
@@ -260,16 +271,25 @@ return {
 						},
 					},
 				},
+
 				inactive_winbar = {
 					lualine_a = {
 						{ "filetype", icon_only = true, icon = { align = "left" } },
-						{ "filename", file_status = false, path = 0 },
+						{ "filename", file_status = true, path = 0 },
 					},
 					lualine_b = {},
 					lualine_c = {},
 					lualine_x = {},
 					lualine_y = {},
-					lualine_z = {},
+					lualine_z = {
+						{
+							function()
+								return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+							end,
+							icon = "",
+							separator = "",
+						},
+					},
 				},
 			})
 		end,
