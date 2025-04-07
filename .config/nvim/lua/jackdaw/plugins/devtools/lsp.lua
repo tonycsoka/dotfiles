@@ -64,20 +64,38 @@ require("jackdaw.postfix").add(function()
 			end, "Signature Help")
 
 			set_keys("]d", function()
-				vim.diagnostic.goto_next()
+				vim.diagnostic.jump({ count = 1, float = true })
 			end, "Next Diagnostic")
 
 			set_keys("[d", function()
-				vim.diagnostic.goto_prev()
+				vim.diagnostic.jump({ count = -1, float = true })
 			end, "Pervious Diagnostic")
 		end,
 	})
 
-	local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
-	for type, icon in pairs(signs) do
-		local hl = "DiagnosticSign" .. type
-		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl, bg = "none", ctermbg = "none" })
-	end
+	-- local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+	-- for type, icon in pairs(signs) do
+	-- 	local hl = "DiagnosticSign" .. type
+	-- 	-- vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl, bg = "none", ctermbg = "none" })
+	-- 	vim.api.nvim_set_hl(0, hl, { bg = "none", ctermbg = "none" })
+	-- end
+
+	vim.diagnostic.config({
+		signs = {
+			text = {
+				[vim.diagnostic.severity.ERROR] = " ",
+				[vim.diagnostic.severity.WARN] = " ",
+				[vim.diagnostic.severity.INFO] = "󰋼 ",
+				[vim.diagnostic.severity.HINT] = "󰌵 ",
+			},
+			-- numhl = {
+			-- 	[vim.diagnostic.severity.ERROR] = "",
+			-- 	[vim.diagnostic.severity.WARN] = "",
+			-- 	[vim.diagnostic.severity.HINT] = "",
+			-- 	[vim.diagnostic.severity.INFO] = "",
+			-- },
+		},
+	})
 end)
 
 require("jackdaw.postfix").add_highlights(function()
@@ -100,6 +118,10 @@ return {
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/nvim-cmp",
 			{
+				"mistweaverco/kulala-cmp-graphql.nvim",
+				opts = {},
+			},
+			{
 				"L3MON4D3/LuaSnip",
 				dependencies = { "rafamadriz/friendly-snippets" },
 			},
@@ -108,16 +130,12 @@ return {
 		},
 		config = function()
 			local handlers = {
-				["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = "rounded" }),
-				["textDocument/signatureHelp"] = vim.lsp.with(
-					vim.lsp.handlers.signature_help,
-					{ silent = true, border = "rounded" }
-				),
+				["textDocument/hover"] = vim.lsp.buf.hover({ silent = true, border = "rounded" }),
+				["textDocument/signatureHelp"] = vim.lsp.buf.signature_help({ silent = true, border = "rounded" }),
 			}
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-			require("mason").setup()
 			require("mason-lspconfig").setup()
 			local lspconfig = require("lspconfig")
 
@@ -130,6 +148,30 @@ return {
 					handlers = handlers,
 				})
 			end
+
+			-- require("lspconfig").pylsp.setup({
+			-- 	settings = {
+			-- 		pylsp = {
+			-- 			plugins = {
+			-- 				-- rope_completion = {
+			-- 				-- 	enabled = true,
+			-- 				-- 	eager = true,
+			-- 				-- },
+			-- 				-- rope_autoimport = {
+			-- 				-- 	enabled = true,
+			-- 				-- },
+			-- 				pylsp_mypy = {
+			-- 					enabled = false,
+			-- 				},
+			-- 				jedi_completion = {
+			-- 					enabled = true,
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- 	capabilities = capabilities,
+			-- 	handlers = handlers,
+			-- })
 
 			local pyright_lsp = require("lspconfig").basedpyright
 			pyright_lsp.setup({
@@ -207,9 +249,9 @@ return {
 				}),
 				sources = {
 					{ name = "path" },
-					{ name = "nvim_lsp", keyword_length = 1 },
-					{ name = "buffer", keyword_length = 1 },
-					{ name = "luasnip", keyword_length = 2 },
+					{ name = "nvim_lsp" },
+					{ name = "buffer" },
+					{ name = "luasnip" },
 				},
 				window = {
 					documentation = cmp.config.window.bordered(),
@@ -229,6 +271,13 @@ return {
 						return item
 					end,
 				},
+			})
+			cmp.setup.filetype("http", {
+				sources = cmp.config.sources({
+					{ name = "kulala-cmp-graphql" },
+				}, {
+					{ name = "buffer" },
+				}),
 			})
 		end,
 	},
