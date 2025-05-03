@@ -10,5 +10,9 @@ return {
 		-- Optional dependencies
 		-- dependencies = { "echasnovski/mini.icons" },
 		dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+		keys = {
+			{ "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
+			{ "<leader>e", "<CMD>Oil --float<CR>", desc = "Open parent directory" },
+		},
 	},
 }

@@ -17,14 +17,3 @@ vim.keymap.set("n", "<c-l>", "<c-w>l", { desc = "Move right (split)" })
 vim.keymap.set("n", "<c-j>", "<c-w>j", { desc = "Move down (split)" })
 vim.keymap.set("n", "<c-k>", "<c-w>k", { desc = "Move up (split)" })
 vim.keymap.set("n", "<cr>", "<c-w>w", { desc = "Cycle splits" })
-
--- need to move the rest out
-
-vim.keymap.set("x", "<leader>/", ":Commentary<cr>")
-vim.keymap.set("v", "<leader>/", ":Commentary<cr>")
-vim.keymap.set("n", "<leader>/", ":Commentary<cr>")
-
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-vim.keymap.set("n", "<leader>e", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
-
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
