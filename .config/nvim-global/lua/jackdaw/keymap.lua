@@ -28,5 +28,3 @@ vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<leader>e", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-
-vim.keymap.set("n", "<leader>sl", require("auto-session.session-lens").search_session, { noremap = true })
