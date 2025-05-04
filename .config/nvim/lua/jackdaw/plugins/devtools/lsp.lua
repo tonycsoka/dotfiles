@@ -7,6 +7,7 @@ return {
 			"j-hui/fidget.nvim",
 		},
 		config = function()
+			require("mason").setup()
 			require("mason-lspconfig").setup()
 
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
@@ -116,7 +117,7 @@ return {
 
 					set_keys("[d", function()
 						vim.diagnostic.jump({ count = -1, float = true })
-					end, "Pervious Diagnostic")
+					end, "Previous Diagnostic")
 				end,
 			})
 		end,
