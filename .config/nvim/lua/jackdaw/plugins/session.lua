@@ -14,8 +14,14 @@ return {
 				session_lens = {
 					-- If load_on_setup is false, make sure you use `:SessionSearch` to open the picker as it will initialize everything first
 					load_on_setup = false,
-					theme_conf = { border = true },
-					previewer = false,
+					theme_conf = {
+						border = true,
+						layout_config = {
+							width = 0.6, -- Can set width and height as percent of window
+							height = 0.4,
+						},
+					},
+					previewer = true,
 					mappings = {
 						-- Mode can be a string or a table, e.g. {"i", "n"} for both insert and normal mode
 						delete_session = { "i", "<C-D>" },
