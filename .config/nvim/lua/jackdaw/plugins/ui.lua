@@ -1,26 +1,22 @@
-require("jackdaw.postfix").add(function()
-	require("notify").setup({ ---@diagnostic disable-line: missing-fields
-		background_colour = "#000000",
-	})
-
-	require("gitsigns").setup()
-end)
-
 return {
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-		opts = {
-			-- add any options here
-		},
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
 		},
+		config = function()
+			require("noice").setup({
+				presets = {
+					lsp_doc_border = true,
+				},
+			})
+		end,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
-		setup = function()
+		config = function()
 			require("gitsigns").setup()
 		end,
 	},

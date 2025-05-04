@@ -1,23 +1,40 @@
 require("jackdaw.options")
 require("jackdaw.lazy")
 require("jackdaw.keymap")
-require("jackdaw.postfix").doit()
+
+local augroup = vim.api.nvim_create_augroup
+local jackdaw = augroup("Jackdaw", {})
+
+local autocmd = vim.api.nvim_create_autocmd
+autocmd({ "BufWritePre" }, {
+	group = jackdaw,
+	pattern = "*",
+	command = [[%s/\s\+$//e]],
+})
+
+vim.diagnostic.config({
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.INFO] = "󰋼 ",
+			[vim.diagnostic.severity.HINT] = "󰌵 ",
+		},
+	},
+})
 
 vim.cmd.colorscheme("catppuccin")
 
-require("jackdaw.postfix").doit_highlights()
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "none", ctermbg = "none" })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { bg = "none", ctermbg = "none" })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "none", ctermbg = "none" })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "none", ctermbg = "none" })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextOk", { bg = "none", ctermbg = "none" })
 
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
--- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", ctermbg = "none" })
--- vim.api.nvim_set_hl(0, "NonText", { bg = "none", ctermbg = "none" })
--- vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none", ctermbg = "none" })
--- vim.api.nvim_set_hl(0, "StatusLine", { bg = "none", ctermbg = "none" })
-
-local augroup = vim.api.nvim_create_augroup
+augroup = vim.api.nvim_create_augroup
 local yank_group = augroup("HighlightYank", {})
 
-local autocmd = vim.api.nvim_create_autocmd
+autocmd = vim.api.nvim_create_autocmd
 
 autocmd("TextYankPost", {
 	group = yank_group,

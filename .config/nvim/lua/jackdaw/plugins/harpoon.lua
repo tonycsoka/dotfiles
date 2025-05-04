@@ -1,42 +1,68 @@
-require("jackdaw.postfix").add(function()
-	local harpoon = require("harpoon")
-
-	-- REQUIRED
-	harpoon:setup()
-	-- REQUIRED
-
-	vim.keymap.set("n", "<leader>a", function()
-		harpoon:list():add()
-	end, { desc = "Harpoon add" })
-	vim.keymap.set("n", "<C-e>", function()
-		harpoon.ui:toggle_quick_menu(harpoon:list())
-	end, { desc = "Harpoon menu" })
-
-	vim.keymap.set("n", "<leader>1", function()
-		harpoon:list():select(1)
-	end, { desc = "Harpoon b1" })
-	vim.keymap.set("n", "<leader>2", function()
-		harpoon:list():select(2)
-	end, { desc = "Harpoon b2" })
-	vim.keymap.set("n", "<leader>3", function()
-		harpoon:list():select(3)
-	end, { desc = "Harpoon b3" })
-	vim.keymap.set("n", "<leader>4", function()
-		harpoon:list():select(4)
-	end, { desc = "Harpoon b4" })
-
-	-- Toggle previous & next buffers stored within Harpoon list
-	vim.keymap.set("n", "<C-S-P>", function()
-		harpoon:list():prev()
-	end, { desc = "Hapoon prev" })
-	vim.keymap.set("n", "<C-S-N>", function()
-		harpoon:list():next()
-	end, { desc = "Harpoon next" })
-end)
 return {
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("harpoon"):setup()
+		end,
+		keys = {
+			{
+				"<leader>a",
+				function()
+					require("harpoon"):list():add()
+				end,
+				desc = "Harpoon Add",
+			},
+			{
+				"<c-e>",
+				function()
+					require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+				end,
+				desc = "Harpoon Menu",
+			},
+			{
+				"<leader>1",
+				function()
+					require("harpoon"):list():select(1)
+				end,
+				desc = "Harpoon Buffer 1",
+			},
+			{
+				"<leader>2",
+				function()
+					require("harpoon"):list():select(2)
+				end,
+				desc = "Harpoon Buffer 2",
+			},
+			{
+				"<leader>3",
+				function()
+					require("harpoon"):list():select(3)
+				end,
+				desc = "Harpoon Buffer 3",
+			},
+			{
+				"<leader>4",
+				function()
+					require("harpoon"):list():select(3)
+				end,
+				desc = "Harpoon Buffer 4",
+			},
+			{
+				"<c-s-p>",
+				function()
+					require("harpoon"):list():prev()
+				end,
+				desc = "Harpoon Prev",
+			},
+			{
+				"<c-s-n>",
+				function()
+					require("harpoon"):list():next()
+				end,
+				desc = "Harpoon Next",
+			},
+		},
 	},
 }
