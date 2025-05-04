@@ -115,8 +115,6 @@ alias cd="z"
 alias dotfiles='/usr/bin/git --git-dir=/Users/tony/.dotfiles/ --work-tree=/Users/tony'
 alias lazydot='lazygit -g $HOME/.dotfiles -w $HOME'
 
-alias gnvim='NVIM_APPNAME=nvim-global nvim'
-
 export JENKINS_APITOKEN=`pass api/global/jenkins`
 
 curl_time() {
