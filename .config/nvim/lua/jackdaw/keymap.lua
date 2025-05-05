@@ -6,9 +6,9 @@ vim.keymap.set("n", ">", ">>2l")
 vim.keymap.set("n", "<", "<<2h")
 
 vim.keymap.set("v", "<c-f>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<c-d>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<c-g>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<c-f>", ":m .+1<CR>==")
-vim.keymap.set("n", "<c-d>", ":m .-2<CR>==")
+vim.keymap.set("n", "<c-g>", ":m .-2<CR>==")
 
 vim.keymap.set("n", "<leader>c", "<cmd>bd<cr>", { desc = "Close current buffer" })
 

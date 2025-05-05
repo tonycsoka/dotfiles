@@ -21,7 +21,7 @@ return {
 							height = 0.4,
 						},
 					},
-					previewer = true,
+					previewer = false,
 					mappings = {
 						-- Mode can be a string or a table, e.g. {"i", "n"} for both insert and normal mode
 						delete_session = { "i", "<C-D>" },
