@@ -8,6 +8,13 @@
 <a href="https://dotfyle.com/tonycsoka/dotfiles-config-nvim"><img src="https://dotfyle.com/tonycsoka/dotfiles-config-nvim/badges/plugin-manager?style=flat" /></a>
 
 
+# dotfiles/.config/nvim
+
+<a href="https://dotfyle.com/tonycsoka/dotfiles-config-nvim"><img src="https://dotfyle.com/tonycsoka/dotfiles-config-nvim/badges/plugins?style=flat" /></a>
+<a href="https://dotfyle.com/tonycsoka/dotfiles-config-nvim"><img src="https://dotfyle.com/tonycsoka/dotfiles-config-nvim/badges/leaderkey?style=flat" /></a>
+<a href="https://dotfyle.com/tonycsoka/dotfiles-config-nvim"><img src="https://dotfyle.com/tonycsoka/dotfiles-config-nvim/badges/plugin-manager?style=flat" /></a>
+
+
 ## Install Instructions
 
  > Install requires Neovim 0.11+. Always review the code before installing a configuration.
@@ -43,6 +50,7 @@ NVIM_APPNAME=tonycsoka/dotfiles/.config/nvim nvim
 ### comment
 
 + [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
++ [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
 ### completion
 
 + [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
@@ -128,6 +136,7 @@ NVIM_APPNAME=tonycsoka/dotfiles/.config/nvim nvim
 + [tonycsoka/neotest-behave](https://dotfyle.com/plugins/tonycsoka/neotest-behave)
 ### utility
 
++ [y3owk1n/time-machine.nvim](https://dotfyle.com/plugins/y3owk1n/time-machine.nvim)
 + [chrisgrieser/nvim-early-retirement](https://dotfyle.com/plugins/chrisgrieser/nvim-early-retirement)
 + [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
 + [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
