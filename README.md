@@ -2,14 +2,6 @@
 
 <img width="1800" alt="Screenshot 2024-07-19 at 23 20 13" src="https://github.com/user-attachments/assets/2f925a53-12bd-4fcf-8220-43e5c334f0b8">
 
-
-<a href="https://dotfyle.com/tonycsoka/dotfiles-config-nvim"><img src="https://dotfyle.com/tonycsoka/dotfiles-config-nvim/badges/plugins?style=flat" /></a>
-<a href="https://dotfyle.com/tonycsoka/dotfiles-config-nvim"><img src="https://dotfyle.com/tonycsoka/dotfiles-config-nvim/badges/leaderkey?style=flat" /></a>
-<a href="https://dotfyle.com/tonycsoka/dotfiles-config-nvim"><img src="https://dotfyle.com/tonycsoka/dotfiles-config-nvim/badges/plugin-manager?style=flat" /></a>
-
-
-# dotfiles/.config/nvim
-
 <a href="https://dotfyle.com/tonycsoka/dotfiles-config-nvim"><img src="https://dotfyle.com/tonycsoka/dotfiles-config-nvim/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/tonycsoka/dotfiles-config-nvim"><img src="https://dotfyle.com/tonycsoka/dotfiles-config-nvim/badges/leaderkey?style=flat" /></a>
 <a href="https://dotfyle.com/tonycsoka/dotfiles-config-nvim"><img src="https://dotfyle.com/tonycsoka/dotfiles-config-nvim/badges/plugin-manager?style=flat" /></a>
