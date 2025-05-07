@@ -57,9 +57,9 @@ return {
 			nvim_navic.setup({
 				seperator = " > ",
 				highlight = false,
-				lsp = {
-					auto_attach = true,
-				},
+				-- lsp = {
+				-- 	auto_attach = true,
+				-- },
 			})
 			local create_symbol_bar = function()
 				if not nvim_navic.is_available() then
