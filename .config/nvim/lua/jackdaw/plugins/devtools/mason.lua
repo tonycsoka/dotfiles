@@ -28,7 +28,6 @@ return {
 				"ruff", -- python linter / formatter
 				"eslint_d", -- js linter
 				"typescript-language-server", -- typescript lsp
-				"pyright", -- python lsp
 				"basedpyright", -- python lsp
 				"rust_analyzer",
 				"clangd", -- c family lsp
