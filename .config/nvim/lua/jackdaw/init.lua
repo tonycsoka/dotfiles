@@ -37,7 +37,7 @@ autocmd("LspAttach", {
 		end, "Goto Declaration")
 
 		set_keys("K", function()
-			vim.lsp.buf.hover({ border = "rounded" })
+			vim.lsp.buf.hover()
 		end, "Hover")
 
 		set_keys("gS", function()
