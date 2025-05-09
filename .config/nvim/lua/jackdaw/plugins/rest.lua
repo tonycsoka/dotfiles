@@ -1,7 +1,7 @@
 return {
-	"rest-nvim/rest.nvim",
-	{
-		"mistweaverco/kulala.nvim",
-		opts = {},
-	},
+	{ "rest-nvim/rest.nvim" },
+	-- {
+	-- 	"mistweaverco/kulala.nvim",
+	-- 	opts = {},
+	-- },
 }

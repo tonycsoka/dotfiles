@@ -2,16 +2,50 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
+			"mason-org/mason.nvim",
+			"mason-org/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"j-hui/fidget.nvim",
 		},
 		config = function()
-			require("mason").setup()
+			local mason = require("mason")
+
+			local mason_tool_installer = require("mason-tool-installer")
+
+			-- enable mason and configure icons
+			mason.setup({ ---@diagnostic disable-line: redundant-parameter
+				ui = {
+					border = "rounded",
+					icons = {
+						package_installed = "✓",
+						package_pending = "➜",
+						package_uninstalled = "✗",
+					},
+				},
+			})
+
+			mason_tool_installer.setup({
+				ensure_installed = {
+					"prettier", -- prettier formatter
+					"stylua", -- lua formatter
+					"mypy", -- python linter
+					"ruff", -- python linter / formatter
+					"eslint_d", -- js linter
+					"typescript-language-server", -- typescript lsp
+					"basedpyright", -- python lsp
+					"rust_analyzer",
+					"clangd", -- c family lsp
+					"lua_ls", -- lua lsp
+					"debugpy", -- python dap
+					"codelldb", -- c family debugger
+					"sourcery", -- multi language AI code actions
+					"graphql-language-service-cli", -- graphql
+				},
+			})
 			require("mason-lspconfig").setup()
 
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls" }
+			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls", "graphql" }
 			for _, lsp in ipairs(servers) do
 				vim.lsp.enable(lsp)
 				vim.lsp.config(lsp, {})
@@ -43,8 +77,6 @@ return {
 				return token
 			end
 
-			-- lspconfig.sourcery.setup({
-			-- 	handlers = handlers,
 			vim.lsp.enable("sourcery")
 			vim.lsp.config("sourcery", {
 				init_options = {
