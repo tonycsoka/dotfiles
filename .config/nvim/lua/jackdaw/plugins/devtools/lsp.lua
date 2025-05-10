@@ -40,12 +40,14 @@ return {
 					"codelldb", -- c family debugger
 					"sourcery", -- multi language AI code actions
 					"graphql-language-service-cli", -- graphql
+					"golangci-lint-langserver", -- golang
+					"gopls", -- golang
 				},
 			})
 			require("mason-lspconfig").setup()
 
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls", "graphql" }
+			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls", "graphql", "gopls" }
 			for _, lsp in ipairs(servers) do
 				vim.lsp.enable(lsp)
 				vim.lsp.config(lsp, {})
