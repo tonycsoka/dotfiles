@@ -36,3 +36,12 @@ end, {
 		return { "stop", "start" }
 	end,
 })
+vim.api.nvim_create_user_command("Lazydot", function(opts)
+	Snacks.terminal.open("lazygit -g $HOME/.dotfiles -w $HOME")
+end, {})
+vim.api.nvim_create_user_command("Lazydocker", function(opts)
+	Snacks.terminal.open("lazydocker")
+end, {})
+vim.api.nvim_create_user_command("GHDash", function(opts)
+	Snacks.terminal.open("gh dash")
+end, {})
