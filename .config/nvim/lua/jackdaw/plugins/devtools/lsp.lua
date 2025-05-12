@@ -41,6 +41,7 @@ return {
 					"sourcery", -- multi language AI code actions
 					"graphql-language-service-cli", -- graphql
 					"golangci-lint-langserver", -- golang
+					"golangci-lint", -- golang
 					"gopls", -- golang
 				},
 			})
