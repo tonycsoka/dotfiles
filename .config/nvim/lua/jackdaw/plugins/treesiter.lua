@@ -37,6 +37,7 @@ return {
 					"http",
 					"gherkin",
 					"go",
+					"sql",
 				},
 
 				-- Install parsers synchronously (only applied to `ensure_installed`)
@@ -63,8 +64,8 @@ return {
 				incremental_selection = {
 					enable = true,
 					keymaps = {
-						init_selection = "<A-Space>",
-						node_incremental = "<A-Space>",
+						init_selection = "<C-CR>",
+						node_incremental = "<C-CR>",
 						scope_incremental = false,
 						node_decremental = "<bs>",
 					},
@@ -72,5 +73,4 @@ return {
 			})
 		end,
 	},
-	"nvim-treesitter/playground",
 }

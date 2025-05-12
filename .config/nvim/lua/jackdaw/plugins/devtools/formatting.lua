@@ -20,6 +20,7 @@ return {
 			lua = { "stylua" },
 			python = { "ruff_fix", "ruff_format" },
 			javascript = { { "prettierd", "prettier" } },
+			json = { "jq" },
 		},
 		-- Set up format-on-save
 		format_on_save = {
@@ -35,6 +36,9 @@ return {
 			},
 			black = {
 				prepend_args = { "--fast" },
+			},
+			jq = {
+				prepend_args = { "--indent", "2" },
 			},
 		},
 	},

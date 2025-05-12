@@ -1,0 +1,16 @@
+# NOTE:
+# docs:
+# ghostty +show-config --default --docs | nvim
+# examples:
+# https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
+background-opacity = 0.6
+# font-family = Symbols Nerd Font Mono
+font-family = FiraCode Nerd Font
+font-feature = calt
+font-feature = liga
+font-feature  = dlig
+macos-titlebar-style = hidden
+theme = catppuccin-mocha
+background-blur-radius = 20
+keybind = global:cmd+`=toggle_quick_terminal
+custom-shader=glow.glsl

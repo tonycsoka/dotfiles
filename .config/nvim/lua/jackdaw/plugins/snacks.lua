@@ -23,6 +23,7 @@ return {
 		},
 		animate = { enabled = true },
 		scroll = { enabled = true },
+		words = { enabled = true },
 		picker = {
 			enabled = true,
 			previewers = {
@@ -74,13 +75,6 @@ return {
 				Snacks.picker.notifications()
 			end,
 			desc = "Notification History",
-		},
-		{
-			"<leader>e",
-			function()
-				Snacks.explorer()
-			end,
-			desc = "File Explorer",
 		},
 		-- find
 		{
@@ -367,6 +361,29 @@ return {
 				Snacks.picker.colorschemes()
 			end,
 			desc = "Colorschemes",
+		},
+		{
+			"<leader>bd",
+			function()
+				Snacks.bufdelete()
+			end,
+			desc = "Delete Buffer",
+		},
+		{
+			"]]",
+			function()
+				Snacks.words.jump(vim.v.count1)
+			end,
+			desc = "Next Reference",
+			mode = { "n", "t" },
+		},
+		{
+			"[[",
+			function()
+				Snacks.words.jump(-vim.v.count1)
+			end,
+			desc = "Prev Reference",
+			mode = { "n", "t" },
 		},
 	},
 }

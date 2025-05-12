@@ -1,5 +1,5 @@
 
-cmd + ctrl - return : open /Applications/Ghostty.app
+cmd + ctrl - return : open -a Ghostty -n
 cmd + ctrl - f : /Applications/WezTerm.app/Contents/MacOS/wezterm-gui start -- yazi
 cmd + ctrl - m : /Applications/WezTerm.app/Contents/MacOS/wezterm-gui start -- musikcube
 cmd + ctrl - b : "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
@@ -49,10 +49,10 @@ shift + alt - h : yabai -m window --swap west
 shift + alt - l : yabai -m window --swap east
 
 # move window and split
-ctrl + alt - j : yabai -m window --warp south
-ctrl + alt - k : yabai -m window --warp north
-ctrl + alt - h : yabai -m window --warp west
-ctrl + alt - l : yabai -m window --warp east
+ctrl + shift - j : yabai -m window --warp south
+ctrl + shift - k : yabai -m window --warp north
+ctrl + shift - h : yabai -m window --warp west
+ctrl + shift - l : yabai -m window --warp east
 
 # move window to display left and right
 shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
