@@ -43,12 +43,13 @@ return {
 					"golangci-lint-langserver", -- golang
 					"golangci-lint", -- golang
 					"gopls", -- golang
+					"json-lsp", -- json
 				},
 			})
 			require("mason-lspconfig").setup()
 
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls", "graphql", "gopls" }
+			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls", "graphql", "gopls", "jsonls" }
 			for _, lsp in ipairs(servers) do
 				vim.lsp.enable(lsp)
 				vim.lsp.config(lsp, {})
