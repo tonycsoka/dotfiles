@@ -14,4 +14,13 @@ return {
 		date_format = "%Y-%m-%d", -- template for the date, check Date format section for more options
 		virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
 	},
+	{
+		"linrongbin16/gitlinker.nvim",
+		cmd = "GitLink",
+		opts = {},
+		keys = {
+			{ "<leader>gy", "<cmd>GitLink<cr>", mode = { "n", "v" }, desc = "Yank git link" },
+			{ "<leader>gY", "<cmd>GitLink!<cr>", mode = { "n", "v" }, desc = "Open git link" },
+		},
+	},
 }
