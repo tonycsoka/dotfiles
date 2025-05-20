@@ -44,12 +44,13 @@ return {
 					"golangci-lint", -- golang
 					"gopls", -- golang
 					"json-lsp", -- json
+					"sqlls", --sql
 				},
 			})
 			require("mason-lspconfig").setup()
 
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls", "graphql", "gopls", "jsonls" }
+			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls", "graphql", "gopls", "jsonls", "sqlls" }
 			for _, lsp in ipairs(servers) do
 				vim.lsp.enable(lsp)
 				vim.lsp.config(lsp, {})
@@ -158,6 +159,13 @@ return {
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
+				per_filetype = {
+					sql = { "snippets", "dadbod", "buffer" },
+				},
+				-- add vim-dadbod-completion to your completion providers
+				providers = {
+					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+				},
 			},
 
 			-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

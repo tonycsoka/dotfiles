@@ -48,6 +48,7 @@ return {
 			"nvim-tree/nvim-web-devicons",
 			"SmiteshP/nvim-navic",
 			"mfussenegger/nvim-lint",
+			"athar-qadri/weather.nvim",
 		},
 		lazy = false,
 		priority = 999,
@@ -260,7 +261,7 @@ return {
 					lualine_b = {},
 					lualine_c = { { create_symbol_bar } },
 					lualine_x = {},
-					lualine_y = {},
+					lualine_y = { require("weather.lualine").default_c() },
 					lualine_z = {
 						{
 							function()

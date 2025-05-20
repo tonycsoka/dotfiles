@@ -1,5 +1,5 @@
 
-cmd + ctrl - return : open /Applications/Ghostty.app
+cmd + ctrl - return : open -a Ghostty -n
 cmd + ctrl - f : /Applications/WezTerm.app/Contents/MacOS/wezterm-gui start -- yazi
 cmd + ctrl - m : /Applications/WezTerm.app/Contents/MacOS/wezterm-gui start -- musikcube
 cmd + ctrl - b : "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"

@@ -37,6 +37,7 @@ return {
 					"http",
 					"gherkin",
 					"go",
+					"sql",
 				},
 
 				-- Install parsers synchronously (only applied to `ensure_installed`)
