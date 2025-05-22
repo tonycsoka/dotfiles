@@ -18,5 +18,5 @@ vim.keymap.set("n", "<c-j>", "<c-w>j", { desc = "Move down (split)" })
 vim.keymap.set("n", "<c-k>", "<c-w>k", { desc = "Move up (split)" })
 vim.keymap.set("n", "<cr>", "<c-w>w", { desc = "Cycle splits" })
 
-vim.keymap.set("n", "Q", "@qj", { desc = "Last macro with CR" })
+vim.keymap.set("n", "Q", "@qj", { desc = "Last macro with down" })
 vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Last macro norm" })
