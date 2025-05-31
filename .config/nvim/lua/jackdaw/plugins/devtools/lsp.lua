@@ -44,12 +44,11 @@ return {
 					"golangci-lint", -- golang
 					"gopls", -- golang
 					"json-lsp", -- json
-					"sqlls", --sql
+					"sqlls", -- sql
 				},
 			})
 			require("mason-lspconfig").setup()
 
-			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls", "graphql", "gopls", "jsonls", "sqlls" }
 			for _, lsp in ipairs(servers) do
 				vim.lsp.enable(lsp)
@@ -62,8 +61,6 @@ return {
 					basedpyright = {
 						-- Pyright settings
 						disableOrganizeImports = true,
-						-- },
-						-- python = {
 						analysis = {
 							typeCheckingMode = "off",
 							autoSearchPaths = true,
@@ -90,7 +87,6 @@ return {
 					token = get_token(),
 				},
 			})
-			-- require("lspconfig.ui.windows").default_options.border = "single"
 		end,
 	},
 	{
