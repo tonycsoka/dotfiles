@@ -39,11 +39,9 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.formatoptions:remove("t")
 
-vim.opt.splitright = true
+-- vim.opt.fillchars = { foldopen = "", foldclose = "", foldsep = " " }
 
-vim.diagnostic.config({
-	float = { border = "rounded" },
-})
+vim.opt.splitright = true
 
 vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 vim.opt.spelllang = "en_gb"

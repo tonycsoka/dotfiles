@@ -7,10 +7,12 @@ return {
 			-- add any opts here
 			-- for example
 			provider = "ollama",
-			ollama = {
-				model = "deepseek-r1:14b",
-				-- model = "qwen2.5-coder:7b",
-				max_tokens = 131072,
+			providers = {
+				ollama = {
+					model = "deepseek-r1:14b",
+					-- model = "qwen2.5-coder:7b",
+					max_tokens = 131072,
+				},
 			},
 		},
 		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`

@@ -58,9 +58,9 @@ return {
 			nvim_navic.setup({
 				seperator = " > ",
 				highlight = false,
-				-- lsp = {
-				-- 	auto_attach = true,
-				-- },
+				lsp = {
+					auto_attach = true,
+				},
 			})
 			local create_symbol_bar = function()
 				if not nvim_navic.is_available() then
@@ -113,7 +113,7 @@ return {
 
 			lualine.setup({ ---@diagnostic disable-line: redundant-parameter
 				options = {
-					theme = "catppuccin",
+					theme = "auto",
 					disabled_filetypes = { "dap-repl", winbar = excluded_filetypes_array },
 					globalstatus = true,
 				},
@@ -124,10 +124,6 @@ return {
 							cond = require("noice").api.status.command.has,
 						},
 						"mode",
-						-- {
-						-- 	require("noice").api.status.mode.get,
-						-- 	cond = require("noice").api.status.mode.has,
-						-- },
 						{
 							require("noice").api.status.search.get,
 							cond = require("noice").api.status.search.has,

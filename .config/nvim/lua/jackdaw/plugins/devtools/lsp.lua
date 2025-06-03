@@ -150,8 +150,16 @@ return {
 			},
 
 			cmdline = {
-				keymap = { preset = "cmdline" },
-				completion = { menu = { auto_show = true } },
+				keymap = {
+					preset = "inherit",
+					["<CR>"] = { "accept_and_enter", "fallback" },
+				},
+				completion = {
+					menu = {
+						auto_show = true,
+					},
+					ghost_text = { enabled = true },
+				},
 			},
 
 			-- Default list of enabled providers defined so that you can extend it
@@ -159,11 +167,27 @@ return {
 			sources = {
 				default = { "buffer", "lsp", "snippets", "path", "omni" },
 				per_filetype = {
+					lua = { "lazydev", "buffer", "lsp", "snippets", "path", "omni" },
 					sql = { "snippets", "dadbod", "buffer" },
 				},
 				-- add vim-dadbod-completion to your completion providers
 				providers = {
 					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						-- make lazydev completions top priority (see `:h blink.cmp`)
+						score_offset = 100,
+					},
+					cmdline = {
+						min_keyword_length = function(ctx)
+							-- when typing a command, only show when the keyword is 3 characters or longer
+							if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then
+								return 3
+							end
+							return 0
+						end,
+					},
 				},
 			},
 

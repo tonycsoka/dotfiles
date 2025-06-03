@@ -3,17 +3,19 @@ require("jackdaw.lazy")
 require("jackdaw.keymap")
 
 local augroup = vim.api.nvim_create_augroup
-local jackdaw = augroup("Jackdaw", {})
+local buff = augroup("buffer_rewite", {})
 
 local autocmd = vim.api.nvim_create_autocmd
-autocmd({ "BufWritePre" }, {
-	group = jackdaw,
+autocmd("BufWritePre", {
+	group = buff,
 	pattern = "*",
 	command = [[%s/\s\+$//e]],
 })
 
+local lsp_attach = augroup("lsp_attach", {})
+
 autocmd("LspAttach", {
-	group = jackdaw,
+	group = lsp_attach,
 	callback = function(e)
 		local function set_keys(keys, func, desc)
 			vim.keymap.set("n", keys, func, { buffer = e.buf, desc = desc })
@@ -75,6 +77,9 @@ autocmd("LspAttach", {
 })
 
 vim.diagnostic.config({
+	float = { border = "rounded" },
+	virtual_lines = { current_line = true },
+
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = " ",
