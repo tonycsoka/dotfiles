@@ -10,8 +10,6 @@ vim.keymap.set("x", "<c-m-k>", ":m '<-2<CR>gv=gv", { desc = "Move block up" })
 vim.keymap.set("n", "<c-m-j>", ":m .+1<CR>==", { desc = "move line down" })
 vim.keymap.set("n", "<c-m-k>", ":m .-2<CR>==", { desc = "move line up" })
 
-vim.keymap.set("n", "<leader>c", "<cmd>bd<cr>", { desc = "Close current buffer" })
-
 vim.keymap.set("n", "<c-h>", "<c-w>h", { desc = "Move left (split)" })
 vim.keymap.set("n", "<c-l>", "<c-w>l", { desc = "Move right (split)" })
 vim.keymap.set("n", "<c-j>", "<c-w>j", { desc = "Move down (split)" })

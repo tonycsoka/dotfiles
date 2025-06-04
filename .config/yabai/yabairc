@@ -41,8 +41,9 @@ yabai -m rule --add app="^RODE Connect$" manage=off
 yabai -m rule --add app="^Podcasts$" manage=off
 yabai -m rule --add app="^PTV$" manage=off
 
-borders active_color=0xffefa4fe inactive_color=0xaf5d7996 width=7.0 &
 
 yabai -m signal --add app='^Ghostty$' event=window_created action='yabai -m space --layout bsp'
 yabai -m signal --add app='^Ghostty$' event=window_destroyed action='yabai -m space --layout bsp'
+
+borders active_color=0xffefa4fe inactive_color=0xaf5d7996 width=5.0 &
 

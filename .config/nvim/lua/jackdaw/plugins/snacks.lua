@@ -65,7 +65,11 @@ return {
 		{
 			"<leader>:",
 			function()
-				Snacks.picker.command_history()
+				Snacks.picker.command_history({
+					layout = {
+						preset = "select",
+					},
+				})
 			end,
 			desc = "Command History",
 		},
@@ -246,7 +250,11 @@ return {
 		{
 			"<leader>sc",
 			function()
-				Snacks.picker.command_history()
+				Snacks.picker.command_history({
+					layout = {
+						preset = "select",
+					},
+				})
 			end,
 			desc = "Command History",
 		},

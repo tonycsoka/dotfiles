@@ -38,18 +38,28 @@ return {
 					"lua_ls", -- lua lsp
 					"debugpy", -- python dap
 					"codelldb", -- c family debugger
-					"sourcery", -- multi language AI code actions
 					"graphql-language-service-cli", -- graphql
 					"golangci-lint-langserver", -- golang
 					"golangci-lint", -- golang
 					"gopls", -- golang
 					"json-lsp", -- json
 					"sqlls", -- sql
+					"markdown-oxide", -- markdown
 				},
 			})
 			require("mason-lspconfig").setup()
 
-			local servers = { "clangd", "rust_analyzer", "ts_ls", "lua_ls", "graphql", "gopls", "jsonls", "sqlls" }
+			local servers = {
+				"clangd",
+				"rust_analyzer",
+				"ts_ls",
+				"lua_ls",
+				"graphql",
+				"gopls",
+				"jsonls",
+				"sqlls",
+				-- "markdown-oxide", -- markdown - this gets set up automatically
+			}
 			for _, lsp in ipairs(servers) do
 				vim.lsp.enable(lsp)
 				vim.lsp.config(lsp, {})
@@ -69,22 +79,6 @@ return {
 							autoImportCompletions = true,
 						},
 					},
-				},
-			})
-
-			local get_token = function()
-				local openPop = assert(io.popen("pass api/sourcery"))
-				local token = openPop:read("*all"):sub(1, -2)
-				openPop:close()
-				return token
-			end
-
-			vim.lsp.enable("sourcery")
-			vim.lsp.config("sourcery", {
-				init_options = {
-					editor_version = "vim",
-					extension_version = "vim.lsp",
-					token = get_token(),
 				},
 			})
 		end,
