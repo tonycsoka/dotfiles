@@ -30,6 +30,10 @@ autocmd("LspAttach", {
 			client.server_capabilities.hoverProvider = false
 		end
 
+		if client.server_capabilities.codeLensProvider then
+			vim.lsp.codelens.refresh({ bufnr = 0 })
+		end
+
 		set_keys("gd", function()
 			vim.lsp.buf.definition()
 		end, "Goto Definition")
