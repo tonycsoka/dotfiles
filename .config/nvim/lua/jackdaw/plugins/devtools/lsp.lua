@@ -3,17 +3,12 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"mason-org/mason.nvim",
-			"mason-org/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"j-hui/fidget.nvim",
 		},
 		config = function()
-			local mason = require("mason")
-
-			local mason_tool_installer = require("mason-tool-installer")
-
 			-- enable mason and configure icons
-			mason.setup({ ---@diagnostic disable-line: redundant-parameter
+			require("mason").setup({ ---@diagnostic disable-line: redundant-parameter
 				ui = {
 					border = "rounded",
 					icons = {
@@ -24,7 +19,7 @@ return {
 				},
 			})
 
-			mason_tool_installer.setup({
+			require("mason-tool-installer").setup({
 				ensure_installed = {
 					"prettier", -- prettier formatter
 					"stylua", -- lua formatter
@@ -33,9 +28,9 @@ return {
 					"eslint_d", -- js linter
 					"typescript-language-server", -- typescript lsp
 					"basedpyright", -- python lsp
-					"rust_analyzer",
+					"rust-analyzer",
 					"clangd", -- c family lsp
-					"lua_ls", -- lua lsp
+					"lua-language-server", -- lua lsp
 					"debugpy", -- python dap
 					"codelldb", -- c family debugger
 					"graphql-language-service-cli", -- graphql
@@ -47,7 +42,6 @@ return {
 					"markdown-oxide", -- markdown
 				},
 			})
-			require("mason-lspconfig").setup()
 
 			local servers = {
 				"clangd",
@@ -58,14 +52,26 @@ return {
 				"gopls",
 				"jsonls",
 				"sqlls",
-				-- "markdown-oxide", -- markdown - this gets set up automatically
+				"basedpyright",
+				"ruff",
+				"markdown_oxide", -- markdown
 			}
+
 			for _, lsp in ipairs(servers) do
 				vim.lsp.enable(lsp)
 				vim.lsp.config(lsp, {})
 			end
 
-			vim.lsp.enable("basedpyright")
+			vim.lsp.config("markdown_oxide", {
+				capabilities = {
+					workspace = {
+						didChangeWatchedFiles = {
+							dynamicRegistration = true,
+						},
+					},
+				},
+			})
+
 			vim.lsp.config("basedpyright", {
 				settings = {
 					basedpyright = {
