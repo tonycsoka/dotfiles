@@ -115,8 +115,7 @@ alias cd="z"
 
 alias dotfiles='/usr/bin/git --git-dir=/Users/tony/.dotfiles/ --work-tree=/Users/tony'
 alias lazydot='lazygit -g $HOME/.dotfiles -w $HOME'
-
-export JENKINS_APITOKEN=`pass api/global/jenkins`
+alias mpvwall='mpv --ontop-level=desktop --ontop --macos-app-activation-policy=accessory --on-all-workspaces --autofit-smaller=100%x100% --macos-geometry-calculation=whole'
 
 curl_time() {
     curl -w "\

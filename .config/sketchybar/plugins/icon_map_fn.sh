@@ -355,7 +355,7 @@ function __icon_map() {
         icon_result=":mongodb:"
         ;;
    "mpv")
-        icon_result=":mpv:"
+        icon_result=""
         ;;
    "Mullvad Browser")
         icon_result=":mullvad_browser:"

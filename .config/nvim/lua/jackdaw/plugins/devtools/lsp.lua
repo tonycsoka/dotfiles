@@ -56,32 +56,6 @@ return {
 				vim.lsp.enable(lsp)
 				vim.lsp.config(lsp, {})
 			end
-
-			vim.lsp.config("markdown_oxide", {
-				capabilities = {
-					workspace = {
-						didChangeWatchedFiles = {
-							dynamicRegistration = true,
-						},
-					},
-				},
-			})
-
-			vim.lsp.config("basedpyright", {
-				settings = {
-					basedpyright = {
-						-- Pyright settings
-						disableOrganizeImports = true,
-						analysis = {
-							typeCheckingMode = "off",
-							autoSearchPaths = true,
-							useLibraryCodeForTypes = true,
-							diagnosticMode = "workspace",
-							autoImportCompletions = true,
-						},
-					},
-				},
-			})
 		end,
 	},
 	{

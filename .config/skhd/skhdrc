@@ -4,6 +4,7 @@ cmd + ctrl - f : /Applications/WezTerm.app/Contents/MacOS/wezterm-gui start -- y
 cmd + ctrl - m : /Applications/WezTerm.app/Contents/MacOS/wezterm-gui start -- musikcube
 cmd + ctrl - b : "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 cmd + ctrl - s : /Applications/Safari.app/Contents/MacOS/Safari
+cmd + ctrl - z : "/Applications/Zen Browser.app/Contents/MacOS/zen"
 
 # -- Changing Window Focus --
 
