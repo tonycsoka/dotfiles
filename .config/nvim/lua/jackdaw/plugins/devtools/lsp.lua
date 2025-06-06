@@ -28,11 +28,8 @@ return {
 					"eslint_d", -- js linter
 					"typescript-language-server", -- typescript lsp
 					"basedpyright", -- python lsp
-					"rust-analyzer",
-					"clangd", -- c family lsp
 					"lua-language-server", -- lua lsp
 					"debugpy", -- python dap
-					"codelldb", -- c family debugger
 					"graphql-language-service-cli", -- graphql
 					"golangci-lint-langserver", -- golang
 					"golangci-lint", -- golang
@@ -44,8 +41,6 @@ return {
 			})
 
 			local servers = {
-				"clangd",
-				"rust_analyzer",
 				"ts_ls",
 				"lua_ls",
 				"graphql",

@@ -102,10 +102,7 @@ vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "none", ctermbg = "no
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextOk", { bg = "none", ctermbg = "none" })
 
-augroup = vim.api.nvim_create_augroup
 local yank_group = augroup("HighlightYank", {})
-
-autocmd = vim.api.nvim_create_autocmd
 
 autocmd("TextYankPost", {
 	group = yank_group,
