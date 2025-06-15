@@ -23,8 +23,8 @@ local languages = {
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-    branch = 'main',
-    lazy = false,
+		branch = "main",
+		lazy = false,
 		build = ":TSUpdate",
 		config = function()
 			vim.api.nvim_create_autocmd("User", {
