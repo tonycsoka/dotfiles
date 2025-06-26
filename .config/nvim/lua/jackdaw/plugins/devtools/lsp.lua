@@ -24,7 +24,7 @@ return {
 					"prettier", -- prettier formatter
 					"stylua", -- lua formatter
 					"mypy", -- python linter
-					"ruff", -- python linter / formatter
+					"ruff", -- python linter / formatter / lsp
 					"eslint_d", -- js linter
 					"typescript-language-server", -- typescript lsp
 					"basedpyright", -- python lsp
@@ -56,6 +56,16 @@ return {
 				vim.lsp.enable(lsp)
 				vim.lsp.config(lsp, {})
 			end
+
+			vim.lsp.config("markdown_oxide", {
+				capabilities = {
+					workspace = {
+						didChangeWatchedFiles = {
+							dynamicRegistration = true,
+						},
+					},
+				},
+			})
 
 			vim.lsp.config("basedpyright", {
 				settings = {
