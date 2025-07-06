@@ -2,7 +2,6 @@ vim.lsp.config["dictionary"] = {
 	cmd = function()
 		return {
 			request = function(m, p, c, n)
-				print(m)
 				if m == "initialize" then
 					c(nil, {
 						capabilities = {
@@ -12,9 +11,10 @@ vim.lsp.config["dictionary"] = {
 				end
 				if m == "textDocument/hover" then
 					local cword = vim.fn.expand("<cword>")
-					-- lookup in the dict
+					local word = require("blink-cmp-words.wordnet").get_similar_words_for_word(cword, 4)[1]
+					local defn = require("blink-cmp-words.wordnet").get_definition_for_word(word, {})
 					c(nil, {
-						contents = cword .. ": Here's a definition for you",
+						contents = defn,
 					})
 				end
 			end,
@@ -28,4 +28,4 @@ vim.lsp.config["dictionary"] = {
 	filetypes = { "markdown" },
 }
 
--- vim.lsp.enable("dictionary")
+vim.lsp.enable("dictionary")
