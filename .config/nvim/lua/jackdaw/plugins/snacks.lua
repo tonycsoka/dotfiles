@@ -296,7 +296,11 @@ return {
 		{
 			"<leader>si",
 			function()
-				Snacks.picker.icons()
+				Snacks.picker.icons({
+					layout = {
+						preset = "select",
+					},
+				})
 			end,
 			desc = "Icons",
 		},
