@@ -1,0 +1,16 @@
+{
+  "layer": "top",
+  "modules-left": [
+    "niri/workspaces"
+  ],
+  "modules-center": [
+    "niri/window"
+  ],
+  "modules-right": [
+    "battery",
+    "clock"
+  ],
+  "clock": {
+    "format-alt": "{:%a, %d. %b  %H:%M}"
+  }
+}
