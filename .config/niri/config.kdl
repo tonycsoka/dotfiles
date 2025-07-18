@@ -111,7 +111,8 @@ layout {
     focus-ring {
         width 4
 
-        active-color "#7fc8ff"
+        // active-color "#7fc8ff"
+        active-color "#efa4fe"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -120,7 +121,8 @@ layout {
         off
 
         width 4
-        active-color "#ffc87f"
+        // active-color "#ffc87f"
+        active-color "#efa4fe"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -142,9 +144,7 @@ layout {
     }
 }
 
-spawn-at-startup "waybar"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "swaybg" "-i" "/home/tony/thegirl.jpg"
 
 prefer-no-csd
 
