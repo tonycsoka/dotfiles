@@ -111,8 +111,8 @@ layout {
     focus-ring {
         width 4
 
-        // active-color "#b19f7e"
-        active-color "#b19f7e"
+        // active-color "#A7ADA3"
+        active-color "#A7ADA3"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -121,8 +121,8 @@ layout {
         off
 
         width 4
-        // active-color "#b19f7e"
-        active-color "#b19f7e"
+        // active-color "#A7ADA3"
+        active-color "#A7ADA3"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
