@@ -38,7 +38,7 @@
     "format": "{}°",
     "tooltip": true,
     "interval": 3600,
-    "exec": "wttrbar --location='South Woodford'",
+    "exec": "wttrbar --location='Loughton'",
     "return-type": "json"
   },
   "clock": {
