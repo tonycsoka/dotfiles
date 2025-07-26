@@ -93,6 +93,11 @@ input {
     position x=1280 y=0
 }
 
+output "Stargate Technology Sculptor demoset-1" {
+    scale 2
+    mode "3840x2160@30.000"
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
@@ -111,8 +116,8 @@ layout {
     focus-ring {
         width 4
 
-        // active-color "#b19f7e"
-        active-color "#b19f7e"
+        // active-color "#a26481"
+        active-color "#a26481"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -121,8 +126,8 @@ layout {
         off
 
         width 4
-        // active-color "#b19f7e"
-        active-color "#b19f7e"
+        // active-color "#a26481"
+        active-color "#a26481"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -222,7 +227,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+B hotkey-overlay-title="Open Web Browser: zen" { spawn "zen-browser"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "-c" "000000"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
