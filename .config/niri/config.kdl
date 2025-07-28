@@ -116,8 +116,8 @@ layout {
     focus-ring {
         width 4
 
-        // active-color "#a26481"
-        active-color "#a26481"
+        // active-color "#8293b4"
+        active-color "#8293b4"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -126,8 +126,8 @@ layout {
         off
 
         width 4
-        // active-color "#a26481"
-        active-color "#a26481"
+        // active-color "#8293b4"
+        active-color "#8293b4"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -150,6 +150,7 @@ layout {
 }
 
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "niri" "msg" "action" "focus-workspace" "development"
 
 prefer-no-csd
 
