@@ -27,7 +27,6 @@ lazygit
 linux-aarch64-rc
 linux-aarch64-rc-headers
 linux-firmware-joshua-git
-luarocks
 mako
 mesa
 nano
