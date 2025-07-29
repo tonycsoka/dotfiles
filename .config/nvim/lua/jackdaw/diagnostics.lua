@@ -1,6 +1,7 @@
 vim.diagnostic.config({
 	float = { border = "rounded" },
 	virtual_lines = { current_line = true },
+	virtual_text = { current_line = false },
 
 	signs = {
 		text = {
