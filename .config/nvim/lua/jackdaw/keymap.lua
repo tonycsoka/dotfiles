@@ -1,4 +1,4 @@
-vim.keymap.set("n", " ", "<Nop>", { desc = "Ignore space", silent = true })
+vim.keymap.set("n", "<space>", "<Nop>", { desc = "Ignore space", silent = true })
 
 vim.keymap.set("x", ">", ">gv2l", { desc = "Add Indent" })
 vim.keymap.set("x", "<", "<gv2h", { desc = "Remove Indent" })
