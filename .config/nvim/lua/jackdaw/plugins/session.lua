@@ -18,6 +18,8 @@ return {
 						delete_session = { "i", "<C-D>" },
 					},
 					picker_opts = {
+						preview = false,
+						preset = "dropdown",
 						border = true,
 						layout_config = {
 							height = 0.4,
@@ -26,6 +28,7 @@ return {
 					},
 					previewer = false,
 				},
+				suppressed_dirs = { "~/" },
 			})
 		end,
 	},

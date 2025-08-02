@@ -113,7 +113,7 @@ alias c='clear'
 
 alias cd="z"
 
-alias dotfiles='/usr/bin/git --git-dir=/Users/tony/.dotfiles/ --work-tree=/Users/tony'
+alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias lazydot='lazygit -g $HOME/.dotfiles -w $HOME'
 alias mpvwall='mpv --ontop-level=desktop --ontop --macos-app-activation-policy=accessory --on-all-workspaces --autofit-smaller=100%x100% --macos-geometry-calculation=whole'
 

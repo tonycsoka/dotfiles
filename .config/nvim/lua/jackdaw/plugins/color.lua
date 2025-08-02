@@ -1,4 +1,24 @@
 return {
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	config = function()
+	-- 		---@diagnostic disable-next-line: missing-fields
+	-- 		require("tokyonight").setup({
+	-- 			style = "night",
+	-- 			transparent = true,
+	-- 			terminal_colors = true,
+	-- 			styles = {
+	-- 				comments = { italic = false },
+	-- 				keywords = { italic = false },
+	-- 				sidebars = "transparent",
+	-- 				floats = "transparent",
+	-- 			},
+	-- 			on_colors = function(colors)
+	-- 				colors.bg_statusline = colors.none -- To check if its working try something like "#ff00ff" instead of colors.none
+	-- 			end,
+	-- 		})
+	-- 	end,
+	-- },
 	{
 		"rebelot/kanagawa.nvim",
 		lazy = false,
