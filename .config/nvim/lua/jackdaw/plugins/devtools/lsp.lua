@@ -23,7 +23,6 @@ return {
 				ensure_installed = {
 					"prettier", -- prettier formatter
 					"stylua", -- lua formatter
-					"mypy", -- python linter
 					"ruff", -- python linter / formatter / lsp
 					"eslint_d", -- js linter
 					"typescript-language-server", -- typescript lsp
