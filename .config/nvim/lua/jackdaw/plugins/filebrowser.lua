@@ -6,9 +6,12 @@ return {
 			keymaps = {
 				["q"] = "actions.close",
 			},
+			lsp_file_methods = {
+				enabled = true,
+				timeout_ms = 1000,
+				autosave_changes = true,
+			},
 		},
-		-- Optional dependencies
-		-- dependencies = { "echasnovski/mini.icons" },
 		dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 		keys = {
 			{ "-", "<CMD>Oil<CR>", desc = "Open parent directory" },

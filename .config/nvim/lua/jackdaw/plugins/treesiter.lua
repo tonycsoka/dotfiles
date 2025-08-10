@@ -34,6 +34,7 @@ return {
 						---@diagnostic disable-next-line missing-fields
 						install_info = {
 							url = "https://github.com/tonycsoka/tree-sitter-gherkin",
+							queries = "queries",
 						},
 
 						tier = 2,

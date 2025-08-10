@@ -36,6 +36,7 @@ return {
 					"json-lsp", -- json
 					"sqlls", -- sql
 					"markdown-oxide", -- markdown
+					"tinymist", -- typst
 				},
 			})
 
@@ -46,14 +47,14 @@ return {
 				"gopls",
 				"jsonls",
 				"sqlls",
-				"basedpyright",
+				-- "basedpyright",
 				"ruff",
-				"markdown_oxide", -- markdown
+				-- "markdown_oxide", -- markdown
 			}
 
 			for _, lsp in ipairs(servers) do
-				vim.lsp.enable(lsp)
 				vim.lsp.config(lsp, {})
+				vim.lsp.enable(lsp)
 			end
 
 			vim.lsp.config("markdown_oxide", {
@@ -65,6 +66,7 @@ return {
 					},
 				},
 			})
+			vim.lsp.enable("markdown_oxide")
 
 			vim.lsp.config("basedpyright", {
 				settings = {
@@ -81,6 +83,18 @@ return {
 					},
 				},
 			})
+			vim.lsp.enable("basedpyright")
+
+			vim.lsp.config("tinymist", {
+				cmd = { "tinymist" },
+				filetypes = { "typst" },
+				settings = {
+					formatterMode = "typstyle",
+					exportPdf = "onType",
+					semanticTokens = "disable",
+				},
+			})
+			vim.lsp.enable("typst")
 		end,
 	},
 }
