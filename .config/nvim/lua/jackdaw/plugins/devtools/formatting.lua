@@ -21,6 +21,7 @@ return {
 			python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 			javascript = { "prettierd", "prettier" },
 			json = { "jq" },
+			html = { "htmlbeautifier" },
 		},
 		-- Set up format-on-save
 		format_on_save = {

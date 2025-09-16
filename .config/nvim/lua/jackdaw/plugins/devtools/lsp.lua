@@ -37,6 +37,8 @@ return {
 					"sqlls", -- sql
 					"markdown-oxide", -- markdown
 					"tinymist", -- typst
+					"htmlbeautifier", -- html formatter
+					"html-lsp", -- html lsp
 				},
 			})
 
@@ -47,6 +49,8 @@ return {
 				"gopls",
 				"jsonls",
 				"sqlls",
+				"html",
+				"tinymist", -- typst
 				-- "basedpyright",
 				"ruff",
 				-- "markdown_oxide", -- markdown

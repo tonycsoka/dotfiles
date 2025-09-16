@@ -10,7 +10,7 @@ font-feature = calt
 font-feature = liga
 font-feature  = dlig
 macos-titlebar-style = hidden
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 background-blur-radius = 20
 keybind = global:cmd+`=toggle_quick_terminal
 custom-shader=glow.glsl
