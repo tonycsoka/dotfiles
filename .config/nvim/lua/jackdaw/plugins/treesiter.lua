@@ -1,4 +1,6 @@
 local languages = {
+	"vim",
+	"regex",
 	"vimdoc",
 	"javascript",
 	"typescript",
