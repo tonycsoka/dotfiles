@@ -8,6 +8,7 @@ environment {
 input {
     keyboard {
         xkb {
+          layout "gb"
         }
 
         // Enable numlock on startup, omitting this setting disables it.
@@ -17,7 +18,7 @@ input {
     // Next sections include libinput settings.
     // Omitting settings disables them, or leaves them at their default values.
     touchpad {
-        off
+        //off
         tap
         // dwt
         // dwtp
@@ -62,7 +63,7 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
+output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
 
@@ -72,14 +73,14 @@ input {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
+    // mode "1920x1080@120.030"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
+    scale 1.25
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    transform "normal"
+    // transform "normal"
 
     // Position of the output in the global coordinate space.
     // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
@@ -90,10 +91,11 @@ input {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    // position x=1280 y=0
 }
 
 output "Stargate Technology Sculptor demoset-1" {
+    off
     scale 2
     mode "3840x2160@30.000"
 }
@@ -102,7 +104,7 @@ output "Stargate Technology Sculptor demoset-1" {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
-    gaps 16
+    gaps 8
     center-focused-column "never"
 
     preset-column-widths {
@@ -116,8 +118,8 @@ layout {
     focus-ring {
         width 4
 
-        // active-color "#8293b4"
-        active-color "#8293b4"
+        // active-color "#afa17a"
+        active-color "#afa17a"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -126,8 +128,8 @@ layout {
         off
 
         width 4
-        // active-color "#8293b4"
-        active-color "#8293b4"
+        // active-color "#afa17a"
+        active-color "#afa17a"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -149,7 +151,6 @@ layout {
     }
 }
 
-spawn-at-startup "xwayland-satellite"
 spawn-at-startup "niri" "msg" "action" "focus-workspace" "development"
 
 prefer-no-csd
@@ -228,7 +229,9 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+B hotkey-overlay-title="Open Web Browser: zen" { spawn "zen-browser"; }
-    Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "-c" "000000"; }
+    // Mod+M hotkey-overlay-title="Disk mount: fuzzel" { spawn "UDISKIE_DMENU_LAUNCHER=fuzzel" "udiskie-dmenu" "--dmenu"; }
+    Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "--clock" "--indicator" "-i" "/home/tony/wallpapers/atd3c3dn244f1.jpeg"; }
+    Mod+Alt+S hotkey-overlay-title="Suspend" { spawn "systemctl" "suspend"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
@@ -236,10 +239,13 @@ binds {
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+    XF86MonBrightnessUp    allow-when-locked=true { spawn "brightnessctl" "set" "--" "+5%"; }
+    XF86MonBrightnessDown  allow-when-locked=true { spawn "brightnessctl" "set" "--" "-5%"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
