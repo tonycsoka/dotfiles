@@ -12,6 +12,7 @@ local languages = {
 	"cpp",
 	"python",
 	"xml",
+	"html",
 	"yaml",
 	"json",
 	"http",
@@ -20,6 +21,7 @@ local languages = {
 	"gherkin",
 	"markdown",
 	"markdown_inline",
+	"typst",
 }
 
 return {
