@@ -1,2 +1,2 @@
-vim.g.python3_host_prog = "/Users/tony/.pyenv/versions/pynvim/bin/python"
+vim.g.python3_host_prog = "~/.config/nvim/.venv/bin/python"
 require("jackdaw")
