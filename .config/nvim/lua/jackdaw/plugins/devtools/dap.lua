@@ -13,16 +13,19 @@ return {
 					"dapDebugServer.js",
 				}, "/")
 				:gsub("//+", "/")
-			require("dap").adapters["pwa-node"] = {
-				type = "server",
-				host = "localhost",
-				port = "${port}",
-				executable = {
-					command = "node",
-					-- 💀 Make sure to update this path to point to your installation
-					args = { debug_path, "${port}" },
-				},
-			}
+			local adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }
+			for _, adapter in ipairs(adapters) do
+				require("dap").adapters[adapter] = {
+					type = "server",
+					host = "localhost",
+					port = "${port}",
+					executable = {
+						command = "node",
+						-- 💀 Make sure to update this path to point to your installation
+						args = { debug_path, "${port}" },
+					},
+				}
+			end
 
 			for _, language in ipairs({ "typescript", "javascript" }) do
 				require("dap").configurations[language] = {
@@ -54,6 +57,23 @@ return {
 						cwd = "${workspaceFolder}",
 						console = "integratedTerminal",
 						internalConsoleOptions = "neverOpen",
+					},
+					{
+						type = "pwa-chrome",
+						name = "Attach - Remote Debugging",
+						request = "attach",
+						program = "${file}",
+						cwd = vim.fn.getcwd(),
+						sourceMaps = true,
+						protocol = "inspector",
+						port = 9222,
+						webRoot = "${workspaceFolder}",
+					},
+					{
+						type = "pwa-chrome",
+						name = "Launch Chrome",
+						request = "launch",
+						url = "http://localhost:3000",
 					},
 				}
 			end

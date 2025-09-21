@@ -25,6 +25,9 @@ return {
 			typescriptreact = { "prettierd", "prettier" },
 			json = { "jq" },
 			html = { "htmlbeautifier" },
+			xml = { "xmlformatter" },
+			xsl = { "xmlformatter" },
+			xslt = { "xmlformatter" },
 		},
 		-- Set up format-on-save
 		format_on_save = {

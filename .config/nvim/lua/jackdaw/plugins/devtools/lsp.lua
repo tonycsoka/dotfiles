@@ -41,6 +41,8 @@ return {
 					"htmlbeautifier", -- html formatter
 					"html-lsp", -- html lsp
 					"js-debug-adapter", -- js/ts debug adapter
+					"lemminx", -- xml lsp
+					"xmlformatter", -- xml formatter
 				},
 			})
 
@@ -52,6 +54,7 @@ return {
 				"jsonls",
 				"sqlls",
 				"html",
+				"lemminx",
 				"tinymist", -- typst
 				-- "basedpyright",
 				"ruff",
