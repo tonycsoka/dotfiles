@@ -1,28 +1,6 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
-		config = function()
-			vim.fn.sign_define(
-				"DapBreakpoint",
-				{ text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
-			)
-			vim.fn.sign_define(
-				"DapBreakpointCondition",
-				{ text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
-			)
-			vim.fn.sign_define(
-				"DapBreakpointRejected",
-				{ text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
-			)
-			vim.fn.sign_define(
-				"DapLogPoint",
-				{ text = "󰛿", texthl = "DapLogPoint", linehl = "DapLogPoint", numhl = "DapLogPoint" }
-			)
-			vim.fn.sign_define(
-				"DapStopped",
-				{ text = "󰁕", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
-			)
-		end,
 	},
 	{
 		"mfussenegger/nvim-dap-python",
@@ -30,6 +8,7 @@ return {
 			"mfussenegger/nvim-dap",
 		},
 		config = function()
+			require("dap")
 			local python_path = table
 				.concat({ vim.fn.stdpath("data"), "mason", "packages", "debugpy", "venv", "bin", "python" }, "/")
 				:gsub("//+", "/")
@@ -37,77 +16,63 @@ return {
 		end,
 	},
 	{
-		"rcarriga/nvim-dap-ui",
+		"mxsdev/nvim-dap-vscode-js",
 		dependencies = {
 			"mfussenegger/nvim-dap",
-			"nvim-neotest/nvim-nio",
+			config = function()
+				require("dap")
+				---@diagnostic disable-next-line: missing-fields
+				require("dap-vscode-js").setup({
+					-- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+					-- debugger_path = "(runtimedir)/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
+					-- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
+					adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
+					-- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
+					-- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
+					-- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
+				})
+
+				for _, language in ipairs({ "typescript", "javascript" }) do
+					require("dap").configurations[language] = {
+						{
+							type = "pwa-node",
+							request = "launch",
+							name = "Launch file",
+							program = "${file}",
+							cwd = "${workspaceFolder}",
+						},
+						{
+							type = "pwa-node",
+							request = "attach",
+							name = "Attach",
+							processId = require("dap.utils").pick_process,
+							cwd = "${workspaceFolder}",
+						},
+						{
+							type = "pwa-node",
+							request = "launch",
+							name = "Debug Jest Tests",
+							-- trace = true, -- include debugger info
+							runtimeExecutable = "node",
+							runtimeArgs = {
+								"./node_modules/jest/bin/jest.js",
+								"--runInBand",
+							},
+							rootPath = "${workspaceFolder}",
+							cwd = "${workspaceFolder}",
+							console = "integratedTerminal",
+							internalConsoleOptions = "neverOpen",
+						},
+					}
+				end
+			end,
 		},
-		config = function()
-			-- vim.api.nvim_set_hl(0, "DapUIPlayPause", { fg = "#A9FF68", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIRestart", { fg = "#A9FF68", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIStop", { fg = "#F70067", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIStepOut", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIStepBack", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIStepInto", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIStepOver", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
-			--
-			-- vim.api.nvim_set_hl(0, "DapUIPlayPauseNC", { fg = "#A9FF68", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIRestartNC", { fg = "#A9FF68", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIStopNC", { fg = "#F70067", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIStepOutNC", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIStepBackNC", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIStepIntoNC", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIStepOverNC", { fg = "#00f1f5", bg = "none", ctermbg = "none" })
-			--
-			-- vim.api.nvim_set_hl(0, "DapUIUnavailable", { fg = "#424242", bg = "none", ctermbg = "none" })
-			-- vim.api.nvim_set_hl(0, "DapUIUnavailableNC", { fg = "#424242", bg = "none", ctermbg = "none" })
-			require("dapui").setup({ ---@diagnostic disable-line: missing-fields
-				controls = { ---@diagnostic disable-line: missing-fields
-					-- Requires Neovim nightly (or 0.8 when released)
-					enabled = true,
-					-- Display controls in this element
-					element = "repl",
-				},
-				layouts = {
-					{
-						elements = {
-							{
-								id = "scopes",
-								size = 0.25,
-							},
-							{
-								id = "breakpoints",
-								size = 0.25,
-							},
-							{
-								id = "stacks",
-								size = 0.25,
-							},
-							{
-								id = "watches",
-								size = 0.25,
-							},
-						},
-						position = "top",
-						size = 10,
-					},
-					{
-						elements = {
-							{
-								id = "repl",
-								size = 0.5,
-							},
-							{
-								id = "console",
-								size = 0.5,
-							},
-						},
-						position = "bottom",
-						size = 10,
-					},
-				},
-			})
-		end,
+	},
+	{
+		"igorlfs/nvim-dap-view",
+		---@module 'dap-view'
+		---@type dapview.Config
+		opts = {},
 	},
 	{
 		"theHamsta/nvim-dap-virtual-text",

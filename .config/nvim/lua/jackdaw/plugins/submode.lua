@@ -120,7 +120,7 @@ return {
 						{
 							"u",
 							function()
-								require("dapui").toggle()
+								require("dap-view").toggle()
 							end,
 							{ desc = "Toggle UI" },
 						},

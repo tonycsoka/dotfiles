@@ -4,6 +4,8 @@ local languages = {
 	"vimdoc",
 	"javascript",
 	"typescript",
+	"tsx",
+	"jsx",
 	"c",
 	"lua",
 	"rust",

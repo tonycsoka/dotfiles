@@ -22,6 +22,7 @@ return {
 			require("mason-tool-installer").setup({
 				ensure_installed = {
 					"prettier", -- prettier formatter
+					"prettierd", -- prettierd formatter
 					"stylua", -- lua formatter
 					"ruff", -- python linter / formatter / lsp
 					"eslint_d", -- js linter
@@ -39,6 +40,7 @@ return {
 					"tinymist", -- typst
 					"htmlbeautifier", -- html formatter
 					"html-lsp", -- html lsp
+					"js-debug-adapter", -- js/ts debug adapter
 				},
 			})
 
