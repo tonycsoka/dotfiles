@@ -130,3 +130,6 @@ starttransfer:  %{time_starttransfer}s\n\
         total:  %{time_total}s\n" "$@"
 }
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+
+[ -f "/Users/tony/.ghcup/env" ] && . "/Users/tony/.ghcup/env" # ghcup-env
