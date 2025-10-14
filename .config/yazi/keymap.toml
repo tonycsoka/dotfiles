@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on = "b"
+run = 'shell -- ~/wall.sh "$0"'
+desc = "Set wallpaper"

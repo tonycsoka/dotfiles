@@ -49,6 +49,10 @@ tooltip label {
     background-color: transparent;
 }
 
+#custom-kbd {
+    background-color: transparent;
+}
+
 @keyframes blink {
     to {
         background-color: #ffffff;

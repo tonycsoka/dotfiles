@@ -2,13 +2,11 @@ workspace "scratchpad"
 workspace "development"
 workspace "chat"
 
-environment {
-    DISPLAY ":0"
-}
 input {
     keyboard {
         xkb {
-          layout "gb"
+          layout "gb,us"
+          options "grp:win_space_toggle"
         }
 
         // Enable numlock on startup, omitting this setting disables it.
@@ -78,6 +76,7 @@ output "eDP-1" {
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1.25
 
+
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     // transform "normal"
@@ -115,11 +114,18 @@ layout {
 
     default-column-width { proportion 0.5; }
 
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
+
     focus-ring {
         width 4
 
-        // active-color "#afa17a"
-        active-color "#afa17a"
+        // active-color "#5e719d"
+        active-color "#5e719d"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -128,8 +134,8 @@ layout {
         off
 
         width 4
-        // active-color "#afa17a"
-        active-color "#afa17a"
+        // active-color "#5e719d"
+        active-color "#5e719d"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -226,10 +232,12 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+    Mod+N hotkey-overlay-title="Open Neovim: nvim" { spawn "ghostty" "-e" "nvim"; }
+    Mod+Y hotkey-overlay-title="Open Yazi: yazi" { spawn "ghostty" "-e" "yazi"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+B hotkey-overlay-title="Open Web Browser: zen" { spawn "zen-browser"; }
-    // Mod+M hotkey-overlay-title="Disk mount: fuzzel" { spawn "UDISKIE_DMENU_LAUNCHER=fuzzel" "udiskie-dmenu" "--dmenu"; }
+    Mod+M hotkey-overlay-title="Disk mount: fuzzel" { spawn-sh "UDISKIE_DMENU_LAUNCHER='fuzzel' udiskie-dmenu --dmenu"; }
     Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "--clock" "--indicator" "-i" "/home/tony/wallpapers/atd3c3dn244f1.jpeg"; }
     Mod+Alt+S hotkey-overlay-title="Suspend" { spawn "systemctl" "suspend"; }
 

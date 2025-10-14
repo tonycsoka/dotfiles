@@ -1,0 +1,3 @@
+[tasks]
+image_alloc=0
+image_bound=[0,0]
