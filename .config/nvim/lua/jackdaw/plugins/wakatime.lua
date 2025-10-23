@@ -2,6 +2,6 @@ return {
 	{
 		"wakatime/vim-wakatime",
 		lazy = false,
-		enable = vim.loop.os_uname().sysname == "Darmin",
+		enabled = (vim.uv.fs_stat(os.getenv("HOME") .. "/.wakatime.cfg") ~= nil),
 	},
 }
