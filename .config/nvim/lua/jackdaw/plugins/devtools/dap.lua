@@ -27,21 +27,21 @@ return {
 				}
 			end
 
-			for _, language in ipairs({ "typescript", "javascript" }) do
+			for _, language in ipairs({ "typescript", "typescriptreact", "javascript", "javascriptreact" }) do
 				require("dap").configurations[language] = {
 					{
 						type = "pwa-node",
 						request = "launch",
 						name = "Launch file",
 						program = "${file}",
-						cwd = "${workspaceFolder}",
+						cwd = "${workspaceFolder}/src",
 					},
 					{
 						type = "pwa-node",
 						request = "attach",
 						name = "Attach",
 						processId = require("dap.utils").pick_process,
-						cwd = "${workspaceFolder}",
+						cwd = "${workspaceFolder}/src",
 					},
 					{
 						type = "pwa-node",
@@ -54,20 +54,35 @@ return {
 							"--runInBand",
 						},
 						rootPath = "${workspaceFolder}",
-						cwd = "${workspaceFolder}",
+						cwd = "${workspaceFolder}/src",
 						console = "integratedTerminal",
 						internalConsoleOptions = "neverOpen",
 					},
 					{
+						-- type = "pwa-chrome",
+						-- name = "Attach - Remote Debugging",
+						-- request = "attach",
+						-- program = "${file}",
+						--       url =
+						-- cwd = vim.fn.getcwd(),
+						-- sourceMaps = true,
+						-- protocol = "inspector",
+						-- port = 9222,
+						-- webRoot = "${workspaceFolder}/src",
+
 						type = "pwa-chrome",
-						name = "Attach - Remote Debugging",
-						request = "attach",
-						program = "${file}",
-						cwd = vim.fn.getcwd(),
+						request = "launch",
+						-- name of the debug action
+						name = "Launch Chrome to debug client side code",
+						-- default vite dev server url
+						url = "http://localhost:5173",
+						-- for TypeScript/Svelte
 						sourceMaps = true,
+						webRoot = "${workspaceFolder}/src",
 						protocol = "inspector",
 						port = 9222,
-						webRoot = "${workspaceFolder}",
+						-- skip files from vite's hmr
+						skipFiles = { "**/node_modules/**/*", "**/@vite/*", "**/src/client/*", "**/src/*" },
 					},
 					{
 						type = "pwa-chrome",

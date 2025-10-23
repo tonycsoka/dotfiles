@@ -7,8 +7,7 @@
     "format": "{name}"
   },
   "modules-center": [
-    "niri/window",
-    "mpd"
+    "niri/window"
   ],
   "niri/window": {
     "format": "{}",
@@ -17,55 +16,17 @@
       "(.*) — Zen Browser": "Zen : $1",
       "(.*) - vim": "Vim $1",
       "nvim": "Neovim",
-      "Ghostty": "Neovim",
       "(.*) - zsh": " [$1]"
     }
   },
-  "mpd": {
-    "format": " {stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})  ",
-    "format-disconnected": " Disconnected  ",
-    "format-stopped": " {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped  ",
-    "interval": 10,
-    "artist-len": 10,
-    "album-len": 10,
-    "album-artist-len": 10,
-    "title-len": 10,
-    "max-len": 30,
-    "consume-icons": {
-      "on": " " // Icon shows only when "consume" is on
-    },
-    "random-icons": {
-      "on": " "
-    },
-    "repeat-icons": {
-      "on": " "
-    },
-    "single-icons": {
-      "on": "1 "
-    },
-    "state-icons": {
-      "paused": "",
-      "playing": ""
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)"
-  },
   "modules-right": [
-    "idle_inhibitor",
-    "custom/kbd",
-    "pulseaudio",
     "backlight",
+    "pulseaudio",
     "network",
     "battery",
+    "custom/weather",
     "clock"
   ],
-  "custom/kbd": {
-    "format": "{}   ",
-    "exec": "niri msg --json keyboard-layouts | jq -cM --unbuffered '{text: .names[.current_idx], tooltip: .names|to_entries|map([.value]|.|join(\" \"))|join(\"\\n\")}'",
-    "interval": 1,
-    "return-type": "json",
-    "on-click": "niri msg action switch-layout next"
-  },
   "network": {
     "format": "{ifname}",
     "format-wifi": "{essid}  ",
@@ -93,6 +54,13 @@
     ],
     "max-length": 25
   },
+  "custom/weather": {
+    "format": " {} ",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar --location='Loughton+England' --custom-indicator '{temp_C}° {ICON}'",
+    "return-type": "json"
+  },
   "backlight": {
     "device": "intel_backlight",
     "format": "{percent}% {icon} ",
@@ -108,8 +76,8 @@
     "format-bluetooth": "{volume}% {icon} ",
     "format-muted": "󰖁 ",
     "format-icons": {
-      // "alsa_output.pci-0000_05_00.6.analog-stereo": "",
-      // "alsa_output.pci-0000_05_00.6.analog-stereo-muted": "",
+      "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+      "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
       "headphone": "",
       "hands-free": "",
       "headset": "",
@@ -150,13 +118,6 @@
       "on-click-right": "mode",
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
-    }
-  },
-  "idle_inhibitor": {
-    "format": "{icon} ",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
     }
   }
 }
