@@ -40,7 +40,7 @@ return {
 					"tinymist", -- typst
 					"htmlbeautifier", -- html formatter
 					"html-lsp", -- html lsp
-					"js-debug-adapter", -- js/ts debug adapter
+					"firefox-debug-adapter", -- firefox
 					"lemminx", -- xml lsp
 					"xmlformatter", -- xml formatter
 				},
