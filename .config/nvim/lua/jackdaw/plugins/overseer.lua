@@ -1,7 +1,7 @@
 return {
 	"stevearc/overseer.nvim",
 	config = function()
-		require("overseer").setup()
+		require("overseer").setup({})
 	end,
 	keys = {
 		{
@@ -14,5 +14,8 @@ return {
 			"<cmd>OverseerToggle<cr>",
 			desc = "Run task",
 		},
+	},
+	dependencies = {
+		"mfussenegger/nvim-dap",
 	},
 }
