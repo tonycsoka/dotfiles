@@ -19,6 +19,47 @@ return {
 				command = "node",
 				args = { firefox_path },
 			}
+
+			local jsdebug_path = table
+				.concat({
+					vim.fn.stdpath("data"),
+					"mason",
+					"packages",
+					"js-debug-adapter",
+					"js-debug",
+					"src",
+					"dapDebugServer.js",
+				}, "/")
+				:gsub("//+", "/")
+
+			dap.adapters["pwa-node"] = {
+				type = "server",
+				host = "localhost",
+				port = "${port}",
+				executable = {
+					command = "node",
+					-- 💀 Make sure to update this path to point to your installation
+					args = { jsdebug_path, "${port}" },
+				},
+			}
+
+			dap.configurations.typescriptreact = {
+				{
+					type = "pwa-node",
+					request = "launch",
+					name = "Debug Jest Tests",
+					-- trace = true, -- include debugger info
+					runtimeExecutable = "node",
+					runtimeArgs = {
+						"./node_modules/jest/bin/jest.js",
+						"--runInBand",
+					},
+					rootPath = "${workspaceFolder}",
+					cwd = "${workspaceFolder}/src",
+					console = "integratedTerminal",
+					internalConsoleOptions = "neverOpen",
+				},
+			}
 		end,
 	},
 	{

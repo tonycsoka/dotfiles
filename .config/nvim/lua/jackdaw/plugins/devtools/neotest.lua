@@ -37,7 +37,7 @@ return {
 						jestArguments = function(defaultArguments, context)
 							return defaultArguments
 						end,
-						jestConfigFile = "custom.jest.config.ts",
+						jestConfigFile = "jest.config.js",
 						env = { CI = true },
 						cwd = function(path)
 							return vim.fn.getcwd()

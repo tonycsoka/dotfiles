@@ -41,6 +41,7 @@ return {
 					"htmlbeautifier", -- html formatter
 					"html-lsp", -- html lsp
 					"firefox-debug-adapter", -- firefox
+					"js-debug-adapter", -- js/ts
 					"lemminx", -- xml lsp
 					"xmlformatter", -- xml formatter
 				},
