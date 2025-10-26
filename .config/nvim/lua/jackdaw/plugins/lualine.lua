@@ -5,6 +5,7 @@ local excluded_filetypes_array = {
 	"Jaq",
 	"NeogitCommitMessage",
 	"Outline",
+	"OverseerList",
 	"Trouble",
 	"aerial",
 	"alpha",
