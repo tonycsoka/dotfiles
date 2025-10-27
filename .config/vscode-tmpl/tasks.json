@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "npm: run dev",
+      "type": "shell",
+      "command": "npm run dev"
+    },
+    {
+      "label": "npm: run dev debug",
+      "type": "shell",
+      "command": "npm --node-options --inspect run dev",
+      "isBackground": true,
+      "problemMatcher": [
+        {
+          "pattern": [
+            {
+              "regexp": ".",
+              "file": 1,
+              "location": 2,
+              "message": 3
+            }
+          ],
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": ".",
+            "endsPattern": "."
+          }
+        }
+      ]
+    },
+    {
+      "label": "firefox debug server",
+      "type": "shell",
+      "osx": {
+        "command": "/Applications/Firefox.app/Contents/MacOS/firefox -start-debugger-server"
+      },
+      "linux": {
+        "command": "/usr/bin/firefox -start-debugger-server"
+      }
+    },
+    {
+      "label": "firefox dev",
+      "type": "shell",
+      "osx": {
+        "command": "/Applications/Firefox.app/Contents/MacOS/firefox http://localhost:5173"
+      },
+      "linux": {
+        "command": "/usr/bin/firefox http://localhost:5173"
+      }
+    },
+    {
+      "label": "Run",
+      "dependsOn": [
+        "npm: run dev",
+        "firefox dev"
+      ]
+    }
+  ]
+}
