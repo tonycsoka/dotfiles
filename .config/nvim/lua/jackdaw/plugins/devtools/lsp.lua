@@ -107,4 +107,23 @@ return {
 			vim.lsp.enable("typst")
 		end,
 	},
+	{
+		"takagiy/lsp-actiononsave.nvim",
+		opts = {
+			-- Enable notifications
+			verbose = false,
+			-- Table of language servers
+			servers = {
+				-- Server name
+				ts_ls = {
+					-- Table of actions to perform
+					"format",
+					"codeAction/source.organizeImports",
+					"codeAction/source.addMissingImports",
+					"codeAction/source.removeUnusedImports",
+					"codeAction/source.fixAll",
+				},
+			},
+		},
+	},
 }

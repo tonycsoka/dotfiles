@@ -19,10 +19,10 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
-			javascript = { "prettierd", "prettier" },
-			typescript = { "prettierd", "prettier" },
-			javascriptreact = { "prettierd", "prettier" },
-			typescriptreact = { "prettierd", "prettier" },
+			javascript = { "eslint_d", "prettierd", "prettier" },
+			typescript = { "eslint_d", "prettierd", "prettier" },
+			javascriptreact = { "eslint_d", "prettierd", "prettier" },
+			typescriptreact = { "eslint_d", "prettierd", "prettier" },
 			json = { "jq" },
 			html = { "htmlbeautifier" },
 			xml = { "xmlformatter" },
@@ -30,11 +30,11 @@ return {
 			xslt = { "xmlformatter" },
 		},
 		-- Set up format-on-save
-		format_on_save = {
+		format_after_save = {
 			timeout_ms = 5000,
 			lsp_format = "fallback",
-			-- async = false,
-			-- quiet = false,
+			async = true,
+			quiet = false,
 		},
 		-- Customize formatters
 		formatters = {
