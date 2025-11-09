@@ -30,10 +30,9 @@ return {
 			xslt = { "xmlformatter" },
 		},
 		-- Set up format-on-save
-		format_after_save = {
+		format_on_save = {
 			timeout_ms = 5000,
 			lsp_format = "fallback",
-			async = true,
 			quiet = false,
 		},
 		-- Customize formatters
