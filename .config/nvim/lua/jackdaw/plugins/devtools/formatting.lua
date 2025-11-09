@@ -29,12 +29,6 @@ return {
 			xsl = { "xmlformatter" },
 			xslt = { "xmlformatter" },
 		},
-		-- Set up format-on-save
-		-- format_on_save = {
-		-- 	timeout_ms = 5000,
-		-- 	lsp_format = "fallback",
-		-- 	quiet = false,
-		-- },
 		-- Customize formatters
 		formatters = {
 			shfmt = {

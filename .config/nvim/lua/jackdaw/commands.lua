@@ -42,6 +42,24 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 			return
 		end
 
+		local actions = {
+			"source.removeUnused",
+			"source.addMissingImports",
+			"source.fixAll",
+		}
+		local params = vim.lsp.util.make_range_params(0, "utf-16")
+		params["context"] = { only = actions, diagnostics = {} }
+		local timeout_ms = 1000
+		local res = client:request_sync("textDocument/codeAction", params, timeout_ms, ev.buf)
+		for _, result in pairs(res and res.result or {}) do
+			if result.edit then
+				vim.lsp.util.apply_workspace_edit(result.edit, client.offset_encoding or "utf-16")
+			end
+			if result.command then
+				client:exec_cmd(result.command, { bufnr = ev.buf })
+			end
+		end
+
 		require("conform").format(conform_opts)
 	end,
 })
