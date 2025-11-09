@@ -12,17 +12,15 @@ local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
 -- strip spaces
-local buff = augroup("buffer_rewite", {})
 autocmd("BufWritePre", {
-	group = buff,
+	group = augroup("FormatBufferSpacesGroup", { clear = true }),
 	pattern = "*",
 	command = [[%s/\s\+$//e]],
 })
 
 -- highlight yanks
-local yank_group = augroup("HighlightYank", {})
 autocmd("TextYankPost", {
-	group = yank_group,
+	group = augroup("HighlightYankGroup", { clear = true }),
 	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank({
@@ -33,9 +31,8 @@ autocmd("TextYankPost", {
 })
 
 -- LSP stuff
-local lsp_attach = augroup("lsp_attach", {})
 autocmd("LspAttach", {
-	group = lsp_attach,
+	group = augroup("LspAttachGroup", { clear = true }),
 	callback = function(e)
 		local function set_keys(keys, func, desc)
 			vim.keymap.set("n", keys, func, { buffer = e.buf, desc = desc })
