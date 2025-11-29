@@ -32,8 +32,12 @@ tooltip label {
     border-bottom: 3px solid white;
 }
 
-#mode, #clock, #battery {
+#mode, #clock {
     padding: 0 10px;
+}
+
+#battery {
+  padding: 0 5px;
 }
 
 #mode {

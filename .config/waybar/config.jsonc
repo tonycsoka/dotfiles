@@ -57,6 +57,7 @@
     "backlight",
     "network",
     "battery",
+    "upower",
     "clock"
   ],
   "custom/kbd": {
@@ -83,7 +84,7 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{capacity}% {icon}",
+    "format": "{capacity}%",
     "format-icons": [
       "",
       "",
@@ -92,6 +93,10 @@
       ""
     ],
     "max-length": 25
+  },
+  "upower": {
+    "format": "",
+    "icon-size": 13
   },
   "backlight": {
     "device": "intel_backlight",
