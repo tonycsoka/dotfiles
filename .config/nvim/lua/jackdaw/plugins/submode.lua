@@ -22,55 +22,6 @@ return {
 			end
 
 			make_mode({
-				mode_key = "<leader>r",
-				title = "Refactor Mode",
-				keymaps = {
-					n = {
-						{
-							"=",
-							function()
-								vim.diagnostic.jump({ count = 1, float = true })
-							end,
-							{ desc = "Next diagnostic" },
-						},
-						{
-							"+",
-							function()
-								vim.diagnostic.jump({ count = -1, float = true })
-							end,
-							{ desc = "Previous diagnostic" },
-						},
-						{
-							"A",
-							function()
-								vim.lsp.buf.code_action()
-							end,
-							{ desc = "Code Actions" },
-						},
-						{
-							"r",
-							function()
-								vim.lsp.buf.rename()
-							end,
-							{ desc = "Rename" },
-						},
-						{
-							"D",
-							function()
-								vim.diagnostic.open_float()
-							end,
-							{ desc = "Diagnostic" },
-						},
-						{
-							"t",
-							"gww",
-							{ desc = "Format comments" },
-						},
-					},
-				},
-			})
-
-			make_mode({
 				mode_key = "<leader>d",
 				title = "Debug Mode",
 				keymaps = {

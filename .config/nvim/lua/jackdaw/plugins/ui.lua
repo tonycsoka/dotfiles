@@ -11,17 +11,17 @@ return {
 				presets = {
 					lsp_doc_border = true,
 				},
-				-- routes = {
-				-- 	{
-				-- 		filter = { event = "msg_show", kind = { "shell_out", "shell_err" } },
-				-- 		view = "notify",
-				-- 		opts = {
-				-- 			level = "info",
-				-- 			skip = false,
-				-- 			replace = false,
-				-- 		},
-				-- 	},
-				-- },
+				routes = {
+					{
+						filter = { event = "msg_show", kind = { "shell_out", "shell_err" } },
+						view = "notify",
+						opts = {
+							level = "info",
+							skip = false,
+							replace = false,
+						},
+					},
+				},
 			})
 		end,
 	},

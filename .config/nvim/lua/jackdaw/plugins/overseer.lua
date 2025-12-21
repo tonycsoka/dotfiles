@@ -1,9 +1,10 @@
 return {
 	"stevearc/overseer.nvim",
 	lazy = false,
-	config = function()
-		require("overseer").setup({})
-	end,
+	version = "1.6.0",
+	opts = {
+		log_level = vim.log.levels.TRACE,
+	},
 	keys = {
 		{
 			"<leader>tr",
