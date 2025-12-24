@@ -26,7 +26,8 @@ return {
 					"stylua", -- lua formatter
 					"ruff", -- python linter / formatter / lsp
 					"eslint_d", -- js linter
-					"typescript-language-server", -- typescript lsp
+					-- "typescript-language-server", -- typescript lsp
+					"tsgo",
 					"basedpyright", -- python lsp
 					"lua-language-server", -- lua lsp
 					"debugpy", -- python dap
@@ -48,7 +49,8 @@ return {
 			})
 
 			local servers = {
-				"ts_ls",
+				-- "ts_ls",
+				"tsgo",
 				"lua_ls",
 				"graphql",
 				"gopls",
