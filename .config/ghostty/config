@@ -3,7 +3,7 @@
 # ghostty +show-config --default --docs | nvim
 # examples:
 # https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
-background-opacity = 0.45
+background-opacity = 0.85
 # font-family = Symbols Nerd Font Mono
 font-family = FiraCode Nerd Font
 font-feature = calt
