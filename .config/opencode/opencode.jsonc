@@ -1,15 +1,53 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "plan",
-  "model": "opencode/big-pickle",
+  "model": "opencode/kimi-k2.5",
   "mcp": {
-    "mui-mcp": {
+    "mui": {
       "type": "local",
       "command": [
         "npx",
         "-y",
         "@mui/mcp@latest"
       ]
+    },
+    "gh_grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app"
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    }
+  },
+  "plugin": [
+    "true-mem"
+  ],
+  "provider": {
+    "ollama": {
+      "models": {
+        "devstral-small-2": {
+          "_launch": true,
+          "name": "devstral-small-2"
+        },
+        "glm-4.7-flash": {
+          "_launch": true,
+          "name": "glm-4.7-flash"
+        },
+        "granite3.1-moe": {
+          "_launch": true,
+          "name": "granite3.1-moe"
+        },
+        "qwen3-coder": {
+          "_launch": true,
+          "name": "qwen3-coder"
+        }
+      },
+      "name": "Ollama (local)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      }
     }
   }
 }

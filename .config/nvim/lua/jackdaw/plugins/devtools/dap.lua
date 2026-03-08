@@ -61,7 +61,13 @@ return {
 		"igorlfs/nvim-dap-view",
 		---@module 'dap-view'
 		---@type dapview.Config
-		opts = {},
+		opts = {
+			winbar = {
+				controls = {
+					enabled = true,
+				},
+			},
+		},
 	},
 	{
 		"theHamsta/nvim-dap-virtual-text",

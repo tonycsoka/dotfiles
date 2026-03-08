@@ -133,3 +133,5 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 
 [ -f "/Users/tony/.ghcup/env" ] && . "/Users/tony/.ghcup/env" # ghcup-env
+# opencode
+export PATH=/Users/tony/.opencode/bin:$PATH
