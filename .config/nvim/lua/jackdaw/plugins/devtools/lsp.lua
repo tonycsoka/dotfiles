@@ -94,6 +94,7 @@ return {
 					semanticTokens = "disable",
 				},
 			})
+
 			vim.lsp.enable("typst")
 		end,
 	},
