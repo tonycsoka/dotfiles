@@ -26,9 +26,8 @@ return {
 					"stylua", -- lua formatter
 					"ruff", -- python linter / formatter / lsp
 					"eslint_d", -- js linter
-					-- "typescript-language-server", -- typescript lsp
-					"tsgo",
-					"basedpyright", -- python lsp
+					"tsgo", -- typescript lsp
+					"zuban", -- python lsp
 					"lua-language-server", -- lua lsp
 					"debugpy", -- python dap
 					"graphql-language-service-cli", -- graphql
@@ -49,7 +48,6 @@ return {
 			})
 
 			local servers = {
-				-- "ts_ls",
 				"tsgo",
 				"lua_ls",
 				"graphql",
@@ -58,10 +56,8 @@ return {
 				"sqlls",
 				"html",
 				"lemminx",
-				"tinymist", -- typst
-				-- "basedpyright",
+				"tinymist", -- typst external
 				"ruff",
-				-- "markdown_oxide", -- markdown
 			}
 
 			for _, lsp in ipairs(servers) do
@@ -80,22 +76,14 @@ return {
 			})
 			vim.lsp.enable("markdown_oxide")
 
-			vim.lsp.config("basedpyright", {
-				settings = {
-					basedpyright = {
-						-- Pyright settings
-						disableOrganizeImports = true,
-						analysis = {
-							typeCheckingMode = "off",
-							autoSearchPaths = true,
-							useLibraryCodeForTypes = false,
-							diagnosticMode = "workspace",
-							autoImportCompletions = true,
-						},
-					},
-				},
+			vim.lsp.config("zubanls", {
+				name = "ZubanLS",
+				cmd = { "zuban", "server" },
+				root_markers = { "pyproject.toml", ".git" },
+				filetypes = { "python" },
 			})
-			vim.lsp.enable("basedpyright")
+
+			vim.lsp.enable("zubanls")
 
 			vim.lsp.config("tinymist", {
 				cmd = { "tinymist" },
