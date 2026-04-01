@@ -94,7 +94,7 @@ autocmd("LspAttach", {
 		end
 
 		if client.server_capabilities.codeLensProvider then
-			vim.lsp.codelens.refresh({ bufnr = 0 })
+			vim.lsp.codelens.enable(true, { bufnr = 0 })
 		end
 
 		set_keys("gd", function()
