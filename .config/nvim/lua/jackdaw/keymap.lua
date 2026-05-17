@@ -18,3 +18,21 @@ vim.keymap.set("n", "<cr>", "<c-w>w", { desc = "Cycle splits" })
 
 vim.keymap.set("n", "Q", "@qj", { desc = "Last macro with down" })
 vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "Last macro norm" })
+
+local ls = require("luasnip")
+
+vim.keymap.set({ "i" }, "<Tab>", function()
+	ls.expand_or_jumpable()
+end, { silent = true })
+vim.keymap.set({ "s" }, "<Tab>", function()
+	ls.jump(1)
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+	ls.jump(-1)
+end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<C-E>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end, { silent = true })

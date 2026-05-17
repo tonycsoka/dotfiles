@@ -88,10 +88,6 @@ autocmd("LspAttach", {
 		if client == nil then
 			return
 		end
-		if client.name == "ruff" then
-			-- Disable hover in favor of Pyright
-			client.server_capabilities.hoverProvider = false
-		end
 
 		if client.server_capabilities.codeLensProvider then
 			vim.lsp.codelens.enable(true, { bufnr = 0 })
@@ -112,18 +108,6 @@ autocmd("LspAttach", {
 		set_keys("gD", function()
 			vim.diagnostic.open_float()
 		end, "Open Diagnostics")
-
-		set_keys("gc", function()
-			vim.lsp.buf.code_action()
-		end, "Code Actions")
-
-		set_keys("gr", function()
-			vim.lsp.buf.references()
-		end, "References")
-
-		set_keys("gR", function()
-			vim.lsp.buf.rename()
-		end, "Rename")
 
 		set_keys("gs", function()
 			vim.lsp.buf.signature_help()

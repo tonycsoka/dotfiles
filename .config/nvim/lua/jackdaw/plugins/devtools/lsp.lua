@@ -81,6 +81,9 @@ return {
 				cmd = { "zuban", "server" },
 				root_markers = { "pyproject.toml", ".git" },
 				filetypes = { "python" },
+				capabilities = {
+					hoverProvider = true,
+				},
 			})
 
 			vim.lsp.enable("zubanls")
