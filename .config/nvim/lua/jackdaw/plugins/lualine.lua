@@ -117,7 +117,7 @@ return {
 			lualine.setup({ ---@diagnostic disable-line: redundant-parameter
 				options = {
 					theme = "auto",
-					disabled_filetypes = { "dap-repl", winbar = excluded_filetypes_array },
+					disabled_filetypes = { "dap-repl", "jira", winbar = excluded_filetypes_array },
 					globalstatus = true,
 				},
 				sections = {
