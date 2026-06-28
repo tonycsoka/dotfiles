@@ -1,7 +1,7 @@
 return {
 	"stevearc/overseer.nvim",
 	lazy = false,
-	version = "1.6.0",
+	-- version = "1.6.0",
 	opts = {
 		log_level = vim.log.levels.TRACE,
 	},
