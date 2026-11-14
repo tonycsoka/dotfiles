@@ -1,5 +1,6 @@
 return {
 	{
+		enabled = false,
 		"mistweaverco/kulala.nvim",
 		keys = {
 			{ "<leader>ks", desc = "Send request" },

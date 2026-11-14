@@ -85,13 +85,11 @@ return {
 				default = { "buffer", "lsp", "snippets", "path", "omni" },
 				per_filetype = {
 					lua = { "lazydev", "buffer", "lsp", "snippets", "path", "omni" },
-					sql = { "snippets", "dadbod", "buffer" },
 					text = { "dictionary" },
 					markdown = { "thesaurus" },
 				},
 				-- add vim-dadbod-completion to your completion providers
 				providers = {
-					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",

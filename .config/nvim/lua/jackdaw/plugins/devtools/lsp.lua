@@ -44,6 +44,7 @@ return {
 					"js-debug-adapter", -- js/ts
 					"lemminx", -- xml lsp
 					"xmlformatter", -- xml formatter
+					"harper-ls", -- harper spell check
 				},
 			})
 
@@ -58,6 +59,7 @@ return {
 				"lemminx",
 				"tinymist", -- typst external
 				"ruff",
+				"harper_ls",
 			}
 
 			for _, lsp in ipairs(servers) do
